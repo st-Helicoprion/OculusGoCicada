@@ -241,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293335252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 1, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2146685422}
@@ -829,6 +829,7 @@ GameObject:
   - component: {fileID: 1215706361}
   - component: {fileID: 1215706362}
   - component: {fileID: 1215706363}
+  - component: {fileID: 1215706364}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -861,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215706358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.71, z: -4.55}
+  m_LocalPosition: {x: 0, y: 0.71, z: -4.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2146685422}
@@ -914,6 +915,23 @@ MonoBehaviour:
     type: 3}
   Camera: {fileID: 1254405528}
   speed: 2
+--- !u!114 &1215706364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215706358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20c0271256f368d45a8e21260c7d38f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Controls: {fileID: -944628639613478452, guid: 0fbdac2f434f8d147934b44dd1a53682,
+    type: 3}
+  mainCamera: {fileID: 0}
+  rotSpeed: 0.1
+  turn: {x: 0, y: 0}
 --- !u!1 &1254405527
 GameObject:
   m_ObjectHideFlags: 0

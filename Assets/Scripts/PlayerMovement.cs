@@ -11,12 +11,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     public float speed;
+    public SonarSkill sonarSkill;
+    public bool isSonar=false;
 
     // Start is called before the first frame update
     void Start()
     {   
         rb=GetComponent<Rigidbody>();
-
+        
         var PlayerControls = Controls.FindActionMap("Player");
         move = PlayerControls.FindAction("Move");
         interact = PlayerControls.FindAction("Interact");
@@ -26,11 +28,23 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveDir = move.ReadValue<float>();
+        Vector2 moveDir = move.ReadValue<Vector2>();
+        rb.velocity =Camera.forward*moveDir.y*speed+Camera.right*moveDir.x*speed;
 
-        if(moveDir!=0)
+        float clicky = interact.ReadValue<float>();
+        
+        if(clicky!=0&&!isSonar)
         {
-            rb.velocity = Camera.forward*moveDir*speed;
+        sonarSkill = Transform.FindObjectOfType<SonarSkill>();
+        sonarSkill.SummonSonar();
+        isSonar=true;
         }
+        if(clicky==0)
+        {
+            isSonar = false;
+        }
+
+     
+                
     }
 }

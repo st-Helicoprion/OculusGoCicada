@@ -59,6 +59,12 @@ public class SonarSkill : MonoBehaviour
 
     }
 
+    public void SummonSonar()
+    {
+         Instantiate(prefab, playerPos.position,Quaternion.identity);
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Buzz"))
