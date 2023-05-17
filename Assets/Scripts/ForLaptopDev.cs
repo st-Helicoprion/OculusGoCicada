@@ -7,10 +7,11 @@ public class ForLaptopDev : MonoBehaviour
 {
     public InputActionAsset Controls;
     private InputAction look;
-    public Transform mainCamera;
+    public Transform mainCamera, playerBody;
     public float rotSpeed;
 
     public Vector2 turn;
+    float XRot =0;
 
 
     // Start is called before the first frame update
@@ -20,9 +21,9 @@ public class ForLaptopDev : MonoBehaviour
 
          var PlayerControls = Controls.FindActionMap("Player");
          look = PlayerControls.FindAction("Look");
-        
+       
          look.Enable();
-        mainCamera = GameObject.Find("XR Origin").GetComponent<Transform>();
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -36,9 +37,17 @@ public class ForLaptopDev : MonoBehaviour
 
        Vector2 lookDir = look.ReadValue<Vector2>();
     
-        turn.x += lookDir.x;
-        turn.y += lookDir.y;
-       mainCamera.localRotation = Quaternion.Euler(-turn.y*rotSpeed, turn.x*rotSpeed,0);
+        turn.x = lookDir.x*rotSpeed*Time.deltaTime;
+        turn.y = lookDir.y*rotSpeed*Time.deltaTime;
+        XRot-=turn.y;
+       mainCamera.localRotation = Quaternion.Euler(XRot,0,0);
+      
+       XRot=Mathf.Clamp(XRot,-90,90);
+       playerBody = this.transform;
+       playerBody.Rotate(Vector3.up*turn.x);
+       
+      
+
     }
 
 }
