@@ -697,7 +697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1164440983
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -915,6 +915,8 @@ MonoBehaviour:
     type: 3}
   Camera: {fileID: 1254405528}
   speed: 2
+  sonarSkill: {fileID: 0}
+  isSonar: 0
 --- !u!114 &1215706364
 MonoBehaviour:
   m_ObjectHideFlags: 0
