@@ -58,7 +58,7 @@ public class SonarSkill : MonoBehaviour
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-5,0),Quaternion.identity);
+         Instantiate(prefab, playerPos.position+new Vector3(0,-5f,0),Quaternion.identity);
     }
 
 
