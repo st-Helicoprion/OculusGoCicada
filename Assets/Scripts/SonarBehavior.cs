@@ -7,6 +7,7 @@ public class SonarBehavior : MonoBehaviour
     public Transform SonarScale;
     public SonarSkill SonarSkill;
     public float curFreq;
+    public float sonarSize;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +20,8 @@ public class SonarBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SonarScale.localScale = Vector3.Lerp(SonarScale.localScale, new Vector3(10, 10, 10), .5f*Time.deltaTime);
-        if (SonarScale.localScale.x >= 9)
+        SonarScale.localScale = Vector3.Lerp(SonarScale.localScale, new Vector3(sonarSize, sonarSize, sonarSize), .5f*Time.deltaTime);
+        if (SonarScale.localScale.x >= sonarSize-1)
         {
             Destroy(this.gameObject);
         }
