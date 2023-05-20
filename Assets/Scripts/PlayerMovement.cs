@@ -11,13 +11,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     public float speed;
-    public SonarSkill sonarSkill; public ForLaptopDev isLaptop;
-    public bool isSonar=false;
+    public SonarSkill sonarSkill; public ForLaptopDev Laptop;
+    public bool isSonar=false, isLaptop;
     // Start is called before the first frame update
     void Start()
     {   
         rb=GetComponent<Rigidbody>();
-        isLaptop = GetComponent<ForLaptopDev>();
+        Laptop = GetComponent<ForLaptopDev>();
         
         var PlayerControls = Controls.FindActionMap("Player");
         move = PlayerControls.FindAction("Move");
@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Vector2 moveDir = move.ReadValue<Vector2>();
         Quaternion curVRRot = vrLook.ReadValue<Quaternion>();
         float startRun = run.ReadValue<float>();
@@ -58,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
         
         if(clicky!=0&&!isSonar)
         {
+        Laptop.enabled = true;
+        isLaptop = true;
         sonarSkill = Transform.FindObjectOfType<SonarSkill>();
         sonarSkill.SummonSonar();
         isSonar=true;

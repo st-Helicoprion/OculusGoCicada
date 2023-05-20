@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49e410cdbe2e2040a8e71764e52d18e, type: 3}
+  m_Name: AudioLibAsset
+  m_EditorClassIdentifier: 
+  songs: []
+  effects:
+  - {fileID: 8300000, guid: e921459e569c5864f8692c5863f25260, type: 3}
+  - {fileID: 8300000, guid: b3ae3c4f27806a3488bb2918e91c47f9, type: 3}
+  - {fileID: 8300000, guid: 1124c3afb2f06b34c96055b7733d1d0f, type: 3}
+  - {fileID: 8300000, guid: 0f9cd884f41e9cd489b67dfe3bd66c8d, type: 3}
+  - {fileID: 8300000, guid: 0d7284401cb52b248aef38b9d134bcba, type: 3}
+  dialogues: []
