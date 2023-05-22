@@ -36,7 +36,6 @@ public class SonarBehavior : MonoBehaviour
 
     public void MoveUp()
     {
-        
         transform.position += Vector3.up * speed * Time.deltaTime;
         distance += speed*Time.deltaTime;
         if (distance >= sonarScale/2)

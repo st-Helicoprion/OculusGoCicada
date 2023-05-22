@@ -18,10 +18,10 @@ public class CircleChecker : MonoBehaviour
         if(other.gameObject.CompareTag("Buzz"))
         {
            sonarSkill.hitOrder.Add(id);
-            for(int i = 0; i<sonarSkill.hitOrder.Count; i++)
-        {
-            Debug.Log(sonarSkill.hitOrder[i]);
-        }
-        }
+        //     for(int i = 0; i<sonarSkill.hitOrder.Count; i++)
+        // {
+        //     Debug.Log(sonarSkill.hitOrder[i]);
+        // }
+       }
    }
 }

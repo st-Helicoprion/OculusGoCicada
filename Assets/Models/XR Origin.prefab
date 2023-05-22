@@ -842,8 +842,9 @@ MonoBehaviour:
   Camera: {fileID: 7967409820729439935}
   speed: 2.5
   sonarSkill: {fileID: 0}
-  isLaptop: {fileID: 0}
+  Laptop: {fileID: 0}
   isSonar: 0
+  isLaptop: 0
 --- !u!114 &7967409820757915611
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonarScale: 20
-  speed: 4
+  speed: 2
   distance: 0
   SonarSkill: {fileID: 0}
   curFreq: 0
