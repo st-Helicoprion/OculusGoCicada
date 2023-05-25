@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Models/FrogLights.prefab.meta
 guid: e0251ea400ef8474f9a19fa42f94a7b2
 PrefabImporter:
+========
+guid: c15ca9d73e6cf8a40af74ff88c133924
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> origin/Level_Design:Assets/Audio.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
