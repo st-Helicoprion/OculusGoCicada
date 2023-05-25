@@ -58,7 +58,7 @@ public class SonarSkill : MonoBehaviour
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-20f,0),Quaternion.identity);
+         Instantiate(prefab, playerPos.position+new Vector3(0,-20f,0),Quaternion.Euler(-90,0,0));
     }
 
     public void Holster()
