@@ -1,105 +1,73 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SonarSkill : MonoBehaviour
 {
-    public AudioLibrary audioLibAsset;
-    public AudioSource audioSource;
     public GameObject prefab;
     public Transform playerPos, stickPos;
     public float frequency;
-    public float freqTime, count;
 
     [Header("Circle Checker")]
-    public InputActionAsset Controls;
-    private InputAction vrInteract;
-    public CircleChecker[] checkers;
+    public Vector3 curPos;
+    public Vector3 refPos;
+    public float threshold, limit, freqTime, count;
+    public bool isCircle = false;
+
     public List<int> hitOrder = new List<int>();
+   
 
     // Start is called before the first frame update
     void Start()
     { 
-        var PlayerControls = Controls.FindActionMap("Player");
-        vrInteract = PlayerControls.FindAction("VRInteract");
-        vrInteract.Enable();
-
         playerPos = GameObject.Find("XR Origin").GetComponent<Transform>();
+        refPos = transform.position;
+        curPos = GameObject.Find("CicadaTub").GetComponent<Transform>().position;
         stickPos = GameObject.Find("ObiLinePivot").GetComponent<Transform>();
-        checkers = GameObject.FindObjectsOfType<CircleChecker>();
-
-        audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
-        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Holster();
-        
-
         if (frequency <= 0)
         {
             frequency = 0;
         }
         else frequency -= 0.5f*Time.deltaTime;
 
-    
+        count+=Time.deltaTime;
+
        if(hitOrder.Count>4)
         {
-            TrackCircle();
-             hitOrder.Clear(); 
+            hitOrder.Clear();
         }
 
-      
+         for(int i = 0; i<hitOrder.Count; i++)
+        {
+            Debug.Log(hitOrder[i]);
+            if(Mathf.Abs(hitOrder[i]-hitOrder[i+1])==1&&hitOrder[0]==hitOrder[3])
+            {
+                SummonSonar();
+                hitOrder.Clear();
+            }
+            if(hitOrder[3]==1||hitOrder[3]==3)
+            Debug.Log(hitOrder[0]+"->"+hitOrder[1]+"->"+hitOrder[2]+"->"+hitOrder[3]);
+        }
 
     }
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-20f,0),Quaternion.identity);
+         Instantiate(prefab, playerPos.position+new Vector3(0,-5,0),Quaternion.identity);
     }
 
-    public void Holster()
-    {
-         float triggy = vrInteract.ReadValue<float>();
-        
 
-         for(int i =0; i<checkers.Length;i++)
-        {
-        if(triggy==1)
-        {      
-             checkers[i].gameObject.GetComponent<Collider>().enabled = true;
-             //count=0;
-        }
-        else if(triggy==0)
-        checkers[i].gameObject.GetComponent<Collider>().enabled = false;
-        // count+=Time.deltaTime;
-        // if(count>=4)
-        // {
-        //     audioSource.Stop();
-        //     count=0;
-        // }
-           
-    }
-
-    }
-
-    public void TrackCircle()
-    {
-           for(int i = 0; i<5; i++)
-        {
-            if(Mathf.Abs(hitOrder[i]-hitOrder[i+1])==1&&hitOrder[0]==hitOrder[3])
-                {
-                    SummonSonar();
-                    hitOrder.Clear();  
-                    //if(audioSource.isPlaying==false)
-                    //audioSource.PlayOneShot(audioLibAsset.effects[5],0.5f);
-                }
-                //else audioSource.Stop();
-           
-        }
-    }
-
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.gameObject.CompareTag("Buzz"))
+    //     {
+    //        SummonSonar();
+    //         frequency++;
+    //     }
+    // }
 }

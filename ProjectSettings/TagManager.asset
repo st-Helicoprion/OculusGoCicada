@@ -5,9 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Buzz
-  - Door
-  - Girl
-  - Goal
   layers:
   - Default
   - TransparentFX
