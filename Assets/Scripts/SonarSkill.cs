@@ -5,17 +5,25 @@ using UnityEngine;
 public class SonarSkill : MonoBehaviour
 {
     public GameObject prefab;
-    public Transform playerPos;
-    public float frequency, disableAnim;
-    // public Animator toyAnim;
-   // public bool startCount;
-    // public AudioSource AudioSource;
-    // public AudioClip toyNoise;
+    public Transform playerPos, stickPos;
+    public float frequency;
+
+    [Header("Circle Checker")]
+    public Vector3 curPos;
+    public Vector3 refPos;
+    public float threshold, limit, freqTime, count;
+    public bool isCircle = false;
+
+    public List<int> hitOrder = new List<int>();
+   
 
     // Start is called before the first frame update
     void Start()
     { 
         playerPos = GameObject.Find("XR Origin").GetComponent<Transform>();
+        refPos = transform.position;
+        curPos = GameObject.Find("CicadaTub").GetComponent<Transform>().position;
+        stickPos = GameObject.Find("ObiLinePivot").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -26,51 +34,40 @@ public class SonarSkill : MonoBehaviour
             frequency = 0;
         }
         else frequency -= 0.5f*Time.deltaTime;
-    
-      
 
-        // if(Input.GetMouseButtonDown(0))
-        // {
+        count+=Time.deltaTime;
 
-        //     if(AudioSource.isPlaying==false)
-        //     {
-        //         AudioSource.PlayOneShot(toyNoise);
-        //     }
-        //     toyAnim.enabled = true;
-        //     toyAnim.CrossFade("DeformBoneAction", 0.5f);
-        //     startCount = true;
-        // }
+       if(hitOrder.Count>4)
+        {
+            hitOrder.Clear();
+        }
 
-        // if(startCount==true)
-        // {
-        //     disableAnim += Time.deltaTime;
-
-        // }
-
-        // if(disableAnim>=4)
-        // {
-        //     startCount = false;
-        //     disableAnim = 0;
-        //     toyAnim.enabled = false;
-        //     AudioSource.Stop();
-
-        // }
-
+         for(int i = 0; i<hitOrder.Count; i++)
+        {
+            Debug.Log(hitOrder[i]);
+            if(Mathf.Abs(hitOrder[i]-hitOrder[i+1])==1&&hitOrder[0]==hitOrder[3])
+            {
+                SummonSonar();
+                hitOrder.Clear();
+            }
+            if(hitOrder[3]==1||hitOrder[3]==3)
+            Debug.Log(hitOrder[0]+"->"+hitOrder[1]+"->"+hitOrder[2]+"->"+hitOrder[3]);
+        }
 
     }
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position,Quaternion.identity);
+         Instantiate(prefab, playerPos.position+new Vector3(0,-5,0),Quaternion.identity);
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Buzz"))
-        {
-        Instantiate(prefab, playerPos.position,Quaternion.identity);
-            frequency++;
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.gameObject.CompareTag("Buzz"))
+    //     {
+    //        SummonSonar();
+    //         frequency++;
+    //     }
+    // }
 }
