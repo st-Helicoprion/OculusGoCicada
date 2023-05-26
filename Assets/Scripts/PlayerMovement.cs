@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour
         Quaternion curVRRot = vrLook.ReadValue<Quaternion>();
         float startRun = run.ReadValue<float>();
       
-
-        Debug.Log(curVRRot);
         if(isLaptop==true)
        {
         rb.velocity =transform.forward*moveDir.y*speed+transform.right*moveDir.x*speed;

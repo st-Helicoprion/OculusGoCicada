@@ -21,8 +21,7 @@ public class SonarBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-        MoveUp();
+        MoveUp(); 
     }
 
     public void ScaleUp()

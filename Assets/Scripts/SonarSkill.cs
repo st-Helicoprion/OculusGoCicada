@@ -38,27 +38,20 @@ public class SonarSkill : MonoBehaviour
     {
         Holster();
         
-
-        if (frequency <= 0)
-        {
-            frequency = 0;
-        }
-        else frequency -= 0.5f*Time.deltaTime;
-
+        freqTime+=Time.deltaTime;
     
        if(hitOrder.Count>4)
         {
             TrackCircle();
              hitOrder.Clear(); 
         }
-
-      
-
     }
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-20f,0),Quaternion.Euler(-90,0,0));
+         Instantiate(prefab, playerPos.position+new Vector3(0,-20f,0),Quaternion.identity);
+          frequency = freqTime;
+            freqTime=0;
     }
 
     public void Holster()
@@ -98,6 +91,7 @@ public class SonarSkill : MonoBehaviour
                     //audioSource.PlayOneShot(audioLibAsset.effects[5],0.5f);
                 }
                 //else audioSource.Stop();
+            else return;
            
         }
     }
