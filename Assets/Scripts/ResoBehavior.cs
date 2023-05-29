@@ -5,7 +5,16 @@ using UnityEngine;
 public class ResoBehavior : MonoBehaviour
 {
     public AudioLibrary audioLibAsset;
-    public AudioSource audioSource;
+    public AudioSource audioSource, playerAudSource;
+    public Animator anim;
+
+    public enum freqRange {high, medium, low};
+
+    public freqRange setFreq;
+    public bool isActivated = false, extra;
+    public int resoLayer;
+    SonarBehavior sonarBehavior;
+    float curFreq;
 
 
     // Start is called before the first frame update
@@ -13,16 +22,91 @@ public class ResoBehavior : MonoBehaviour
     {
         audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
         audioSource = GetComponent<AudioSource>();
+        playerAudSource = GameObject.Find("XR Origin").GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
+
+        audioSource.spatialBlend =1;
+        audioSource.maxDistance = 50;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        ResoEffect();
+        sonarBehavior = other.GetComponent<SonarBehavior>();
+        curFreq = sonarBehavior.curFreq;
+        if(!extra)
+        FreqCheck();
+        else
+        ExtraResoEffect();
     }
+
 
     public void ResoEffect()
     {
-        Debug.Log("hit");
+        if(transform.gameObject.CompareTag("Light"))
+        {
+            anim.CrossFade("Glow", 0f);
+            audioSource.PlayOneShot(audioLibAsset.effects[7],.25f);
+            playerAudSource.PlayOneShot(audioLibAsset.effects[6],.25f);
+        }
+    }
+
+    public void FreqCheck()
+    {
+        if(setFreq == freqRange.low&&!isActivated)
+        {
+            if(audioSource.isPlaying==false)
+            {
+                audioSource.PlayOneShot(audioLibAsset.mechanics[0]);
+                if(curFreq>=3)
+                {
+                    resoLayer++;
+                    if(resoLayer==3)
+                    {
+
+                    ResoEffect();
+                    isActivated=true;
+                    }
+                }
+            }
+        }
+        else if(setFreq == freqRange.medium&&!isActivated)
+        {
+            if(audioSource.isPlaying==false)
+            {
+                audioSource.PlayOneShot(audioLibAsset.mechanics[1]);
+                if(curFreq>1&&curFreq<3)
+                {
+                   resoLayer++;
+                    if(resoLayer==3)
+                    {
+
+                    ResoEffect();
+                    isActivated=true;
+                    }
+                }
+            }
+        }
+        else if(setFreq == freqRange.high&&!isActivated)
+        {
+            if(audioSource.isPlaying==false)
+            {
+                audioSource.PlayOneShot(audioLibAsset.mechanics[2]);
+                if(curFreq<=1)
+                {
+                    resoLayer++;
+                    if(resoLayer==3)
+                    {
+
+                    ResoEffect();
+                    isActivated=true;
+                    }
+                }
+            }
+        }
+    }
+    public void ExtraResoEffect()
+    {
+        Debug.Log("extra hit");
         if(transform.gameObject.CompareTag("Girl")&&audioSource.isPlaying==false)
         {
             audioSource.PlayOneShot(audioLibAsset.effects[Random.Range(1,4)]); 
@@ -35,4 +119,5 @@ public class ResoBehavior : MonoBehaviour
             
         }
     }
+    
 }

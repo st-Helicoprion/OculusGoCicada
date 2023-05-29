@@ -80,6 +80,7 @@ Material:
     m_Floats:
     - Vector1_10CDE328: 0.2
     - Vector1_A8806370: 1
+    - Vector1_B30C7C99: 0.2
     - Vector1_D2BDC462: -0.95
     - _AlphaClip: 0
     - _Blend: 0
@@ -98,6 +99,7 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
+    - _SampleGI: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
