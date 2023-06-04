@@ -51,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
        {
         speed = 6;
         rb.velocity =Camera.forward*startRun*speed;
-       }else speed=4f;
+       }
+    //    else speed=2f;
 
         float clicky = interact.ReadValue<float>();
         
