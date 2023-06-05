@@ -15,6 +15,7 @@ public class ResoBehavior : MonoBehaviour
     public int resoLayer;
     SonarBehavior sonarBehavior;
     float curFreq;
+    public GameObject particle;
 
 
     // Start is called before the first frame update
@@ -31,12 +32,16 @@ public class ResoBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        sonarBehavior = other.GetComponent<SonarBehavior>();
-        curFreq = sonarBehavior.curFreq;
-        if(!extra)
-        FreqCheck();
-        else
-        ExtraResoEffect();
+        if(other.CompareTag("Sonar"))
+        {
+            sonarBehavior = other.GetComponent<SonarBehavior>();
+            curFreq = sonarBehavior.curFreq;
+            if(!extra)
+            FreqCheck();
+            else
+            ExtraResoEffect();
+
+        }
     }
 
 
@@ -60,6 +65,7 @@ public class ResoBehavior : MonoBehaviour
                 if(curFreq>=3)
                 {
                     resoLayer++;
+                    ShowLayerHit();
                     if(resoLayer==3)
                     {
 
@@ -77,6 +83,7 @@ public class ResoBehavior : MonoBehaviour
                 if(curFreq>1&&curFreq<3)
                 {
                    resoLayer++;
+                   ShowLayerHit();
                     if(resoLayer==3)
                     {
 
@@ -94,6 +101,7 @@ public class ResoBehavior : MonoBehaviour
                 if(curFreq<=1)
                 {
                     resoLayer++;
+                    ShowLayerHit();
                     if(resoLayer==3)
                     {
 
@@ -118,6 +126,11 @@ public class ResoBehavior : MonoBehaviour
             audioSource.PlayOneShot(audioLibAsset.effects[0]); 
             
         }
+    }
+
+    public void ShowLayerHit()
+    {
+        Instantiate(particle, transform.position,Quaternion.identity);
     }
     
 }

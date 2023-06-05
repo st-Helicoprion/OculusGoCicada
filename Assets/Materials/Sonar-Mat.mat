@@ -23,9 +23,9 @@ Material:
   m_Name: Sonar-Mat
   m_Shader: {fileID: -6465566751694194690, guid: 37a19cbab31a33e41a2bdf9e26aae7c8,
     type: 3}
-  m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -81,11 +81,11 @@ Material:
     - Vector1_10CDE328: 0.2
     - Vector1_A8806370: 1
     - Vector1_B30C7C99: 0.2
-    - Vector1_D2BDC462: -0.95
+    - Vector1_D2BDC462: -1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Cull: 0
+    - _Cull: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0

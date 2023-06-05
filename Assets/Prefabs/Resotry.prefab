@@ -127,7 +127,10 @@ MonoBehaviour:
   anim: {fileID: 0}
   setFreq: 1
   isActivated: 0
+  extra: 0
   resoLayer: 0
+  particle: {fileID: 6046922724860315370, guid: 41e1fa918a556bf4589fe853b6a37b13,
+    type: 3}
 --- !u!82 &1017660663283830961
 AudioSource:
   m_ObjectHideFlags: 0
