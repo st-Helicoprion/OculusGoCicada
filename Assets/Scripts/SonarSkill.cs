@@ -8,7 +8,7 @@ public class SonarSkill : MonoBehaviour
     public AudioLibrary audioLibAsset;
     public AudioSource audioSource;
     public GameObject prefab;
-    public Transform playerPos, stickPos;
+    public Transform playerPos, stickPos, handPos;
     public float frequency;
     public float freqTime, count;
 
@@ -26,7 +26,8 @@ public class SonarSkill : MonoBehaviour
         vrInteract.Enable();
 
         playerPos = GameObject.Find("XR Origin").GetComponent<Transform>();
-        stickPos = GameObject.Find("ObiLinePivot").GetComponent<Transform>();
+        stickPos = GameObject.Find("ObiModCicada").GetComponent<Transform>();
+        handPos = GameObject.Find("RightHand Controller").GetComponent<Transform>().GetChild(0).GetComponent<Transform>();
         checkers = GameObject.FindObjectsOfType<CircleChecker>();
 
         audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
@@ -45,11 +46,13 @@ public class SonarSkill : MonoBehaviour
             TrackCircle();
              hitOrder.Clear(); 
         }
+
+       
     }
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-20f,0),Quaternion.identity);
+         Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
           frequency = freqTime;
             freqTime=0;
     }
@@ -58,16 +61,17 @@ public class SonarSkill : MonoBehaviour
     {
          float triggy = vrInteract.ReadValue<float>();
         
-
          for(int i =0; i<checkers.Length;i++)
         {
         if(triggy==1)
-        {      
-             checkers[i].gameObject.GetComponent<Collider>().enabled = true;
+        {    
+            checkers[i].gameObject.GetComponent<Collider>().enabled = true;
              //count=0;
         }
         else if(triggy==0)
-        checkers[i].gameObject.GetComponent<Collider>().enabled = false;
+        {
+          checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
+        }
         // count+=Time.deltaTime;
         // if(count>=4)
         // {
