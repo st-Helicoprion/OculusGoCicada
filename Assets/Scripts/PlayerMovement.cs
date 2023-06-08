@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     {   
         rb=GetComponent<Rigidbody>();
         Laptop = GetComponent<ForLaptopDev>();
-        
         var PlayerControls = Controls.FindActionMap("Player");
         move = PlayerControls.FindAction("Move");
         interact = PlayerControls.FindAction("Interact");
