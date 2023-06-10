@@ -20,7 +20,7 @@ public class TubLimiter : MonoBehaviour
     }
     void Update()
     {
-        debugText.text = stickPos.transform.position.ToString() + "," + handPos.transform.position.ToString() ;
+        //debugText.text = stickPos.transform.position.ToString() + "," + handPos.transform.position.ToString() ;
         //debugText.text = playerRB.velocity.ToString();
 
         if(Mathf.Abs(rb.velocity.x)>3)

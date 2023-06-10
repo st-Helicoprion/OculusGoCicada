@@ -34,6 +34,7 @@ public class ResoBehavior : MonoBehaviour
     {
         if(other.CompareTag("Sonar"))
         {
+            other.tag = "Untagged";
             sonarBehavior = other.GetComponent<SonarBehavior>();
             curFreq = sonarBehavior.curFreq;
             if(!extra)

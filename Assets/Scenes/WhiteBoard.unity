@@ -2699,6 +2699,7 @@ MonoBehaviour:
   isActivated: 0
   extra: 1
   resoLayer: 0
+  particle: {fileID: 0}
 --- !u!82 &223628301
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3820,6 +3821,7 @@ MonoBehaviour:
   isActivated: 0
   extra: 1
   resoLayer: 0
+  particle: {fileID: 0}
 --- !u!65 &273802784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16104,16 +16106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedd62ecaaa8a194ebcdede7b294baa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonarScale: 40
-  speed: 2
-  distance: 0
-  SonarSkill: {fileID: 0}
-  curFreq: 0
-  prefab: {fileID: 1142723225}
-  playerPos: {fileID: 1728774301}
-  frequency: 0
-  freqTime: 0
-  count: 0
 --- !u!95 &1142723231
 Animator:
   serializedVersion: 3
@@ -16584,6 +16576,7 @@ MonoBehaviour:
   isActivated: 0
   extra: 1
   resoLayer: 0
+  particle: {fileID: 0}
 --- !u!82 &1162340590
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28890,7 +28883,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675954113}
   m_LocalRotation: {x: -0, y: -0.70710677, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -26.14, y: -0.04, z: 27.8}
+  m_LocalPosition: {x: -13.7, y: -0.04, z: 27.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 131315614}
@@ -33082,7 +33075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1894201527
 Light:
   m_ObjectHideFlags: 0

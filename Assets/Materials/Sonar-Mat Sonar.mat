@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sonar-Mat Sonar
-  m_Shader: {fileID: -6465566751694194690, guid: 37a19cbab31a33e41a2bdf9e26aae7c8,
+  m_Shader: {fileID: -6465566751694194690, guid: b634d7a197de11e45bb1bc7954be32cf,
     type: 3}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
@@ -79,8 +79,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_10CDE328: 0.2
+    - Vector1_11C113FB: 1
     - Vector1_A8806370: 1
     - Vector1_B30C7C99: 0.2
+    - Vector1_CA9CCF7C: 1
     - Vector1_D2BDC462: -1
     - _AlphaClip: 0
     - _Blend: 0
