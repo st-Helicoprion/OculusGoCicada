@@ -24,12 +24,6 @@ public class SonarBehavior : MonoBehaviour
     void Update()
     {
         MoveUp(); 
-        Debug.Log(sonarMat.color.a);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        
     }
 
     // public void ScaleUp()

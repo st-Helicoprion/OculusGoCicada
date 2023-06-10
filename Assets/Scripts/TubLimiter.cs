@@ -8,19 +8,20 @@ public class TubLimiter : MonoBehaviour
     public ConfigurableJoint jointLock;
     public TextMeshProUGUI debugText;
     public Rigidbody rb;
-    public GameObject stickTop;
+    public GameObject stickPos, handPos;
     public bool isSpin = false;
+    public Rigidbody playerRB;
 
     void Start()
     {
         jointLock = GetComponent<ConfigurableJoint>();
         rb =  GetComponent<Rigidbody>();
+        playerRB = GameObject.Find("XR Origin").GetComponent<Rigidbody>();
     }
     void Update()
     {
-        //joint1.zMotion = ConfigurableJointMotion.Free;
-
-        debugText.text = rb.velocity.ToString();
+        debugText.text = stickPos.transform.position.ToString() + "," + handPos.transform.position.ToString() ;
+        //debugText.text = playerRB.velocity.ToString();
 
         if(Mathf.Abs(rb.velocity.x)>3)
         {
@@ -40,6 +41,7 @@ public class TubLimiter : MonoBehaviour
             jointLock.zMotion = ConfigurableJointMotion.Locked;
         }
         else jointLock.zMotion = ConfigurableJointMotion.Free;
+
 
     }
 }
