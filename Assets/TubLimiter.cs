@@ -20,7 +20,7 @@ public class TubLimiter : MonoBehaviour
     {
         //joint1.zMotion = ConfigurableJointMotion.Free;
 
-        debugText.text = rb.velocity.ToString();
+        // debugText.text = rb.velocity.ToString();
 
         if(Mathf.Abs(rb.velocity.x)>3)
         {
