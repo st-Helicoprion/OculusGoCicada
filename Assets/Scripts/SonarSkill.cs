@@ -2,21 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class SonarSkill : MonoBehaviour
 {
     public AudioLibrary audioLibAsset;
     public AudioSource audioSource;
-    public GameObject prefab;
-    public Transform playerPos, stickPos;
+    public GameObject prefab, spotGlow;
+    public Transform playerPos, stickPos, handPos;
     public float frequency;
     public float freqTime, count;
+    public TextMeshProUGUI debugText;
 
     [Header("Circle Checker")]
     public InputActionAsset Controls;
     private InputAction vrInteract;
     public CircleChecker[] checkers;
     public List<int> hitOrder = new List<int>();
+    public bool sonarIsActive=false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,8 @@ public class SonarSkill : MonoBehaviour
         vrInteract.Enable();
 
         playerPos = GameObject.Find("XR Origin").GetComponent<Transform>();
-        stickPos = GameObject.Find("ObiLinePivot").GetComponent<Transform>();
+        stickPos = GameObject.Find("CicadaStick").GetComponent<Transform>();
+        handPos = GameObject.Find("RightHand Controller").GetComponent<Transform>().GetChild(0).GetComponent<Transform>();
         checkers = GameObject.FindObjectsOfType<CircleChecker>();
 
         audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
@@ -36,7 +40,8 @@ public class SonarSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Holster();
+        //debugText.text = sonarIsActive.ToString();
+        //debugText.text = playerPos.gameObject.GetComponent<Rigidbody>().velocity.ToString();
         
         freqTime+=Time.deltaTime;
     
@@ -45,29 +50,44 @@ public class SonarSkill : MonoBehaviour
             TrackCircle();
              hitOrder.Clear(); 
         }
+
+        Vector3 stickPosSplit = stickPos.position;
+        Vector3 handPosSplit = handPos.position;
+        if(Mathf.Abs(stickPosSplit.x-handPosSplit.x)<=0.15f
+        &&Mathf.Abs(stickPosSplit.y-handPosSplit.y)<=0.15f
+        &&Mathf.Abs(stickPosSplit.y-handPosSplit.y)<=0.15f)
+        {
+            sonarIsActive = true;    
+        }
+        else sonarIsActive = false;
+
+        Holster();
+        
+        
     }
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-20f,0),Quaternion.identity);
-          frequency = freqTime;
+         Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
+          frequency = 1/freqTime;
             freqTime=0;
     }
 
     public void Holster()
     {
-         float triggy = vrInteract.ReadValue<float>();
         
-
          for(int i =0; i<checkers.Length;i++)
         {
-        if(triggy==1)
-        {      
-             checkers[i].gameObject.GetComponent<Collider>().enabled = true;
+        if(sonarIsActive)
+        {    
+            checkers[i].gameObject.GetComponent<Collider>().enabled = true;
+            //spotGlow.SetActive(true);
              //count=0;
         }
-        else if(triggy==0)
-        checkers[i].gameObject.GetComponent<Collider>().enabled = false;
+        else if(!sonarIsActive)
+        {
+          checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
+        }
         // count+=Time.deltaTime;
         // if(count>=4)
         // {

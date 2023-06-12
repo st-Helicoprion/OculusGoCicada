@@ -9,7 +9,7 @@ public class ForLaptopDev : MonoBehaviour
     private InputAction look;
     public Transform mainCamera, playerBody;
     public float rotSpeed;
-
+    public GameObject VRController;
     public Vector2 turn;
     float XRot =0;
 
@@ -24,6 +24,7 @@ public class ForLaptopDev : MonoBehaviour
        
          look.Enable();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
+        VRController.SetActive(false);
     }
 
     // Update is called once per frame

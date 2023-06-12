@@ -15,6 +15,7 @@ public class ResoBehavior : MonoBehaviour
     public int resoLayer;
     SonarBehavior sonarBehavior;
     float curFreq;
+    public GameObject particle;
 
 
     // Start is called before the first frame update
@@ -31,12 +32,17 @@ public class ResoBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        sonarBehavior = other.GetComponent<SonarBehavior>();
-        curFreq = sonarBehavior.curFreq;
-        if(!extra)
-        FreqCheck();
-        else
-        ExtraResoEffect();
+        if(other.CompareTag("Sonar"))
+        {
+            other.tag = "Untagged";
+            sonarBehavior = other.GetComponent<SonarBehavior>();
+            curFreq = sonarBehavior.curFreq;
+            if(!extra)
+            FreqCheck();
+            else
+            ExtraResoEffect();
+
+        }
     }
 
 
@@ -57,9 +63,10 @@ public class ResoBehavior : MonoBehaviour
             if(audioSource.isPlaying==false)
             {
                 audioSource.PlayOneShot(audioLibAsset.mechanics[0]);
-                if(curFreq>=3)
+                if(curFreq<1.2)
                 {
                     resoLayer++;
+                    ShowLayerHit();
                     if(resoLayer==3)
                     {
 
@@ -74,9 +81,10 @@ public class ResoBehavior : MonoBehaviour
             if(audioSource.isPlaying==false)
             {
                 audioSource.PlayOneShot(audioLibAsset.mechanics[1]);
-                if(curFreq>1&&curFreq<3)
+                if(curFreq>1.2&&curFreq<1.8)
                 {
                    resoLayer++;
+                   ShowLayerHit();
                     if(resoLayer==3)
                     {
 
@@ -91,9 +99,10 @@ public class ResoBehavior : MonoBehaviour
             if(audioSource.isPlaying==false)
             {
                 audioSource.PlayOneShot(audioLibAsset.mechanics[2]);
-                if(curFreq<=1)
+                if(curFreq>1.8)
                 {
                     resoLayer++;
+                    ShowLayerHit();
                     if(resoLayer==3)
                     {
 
@@ -118,6 +127,11 @@ public class ResoBehavior : MonoBehaviour
             audioSource.PlayOneShot(audioLibAsset.effects[0]); 
             
         }
+    }
+
+    public void ShowLayerHit()
+    {
+        Instantiate(particle, transform.position,Quaternion.identity);
     }
     
 }
