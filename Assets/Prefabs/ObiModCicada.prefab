@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &28213311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4418483858468136665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ff1bed65f5773349ade62982fd4f7cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jointLock: {fileID: 0}
+  debugText: {fileID: 0}
+  rb: {fileID: 0}
+  stickPos: {fileID: 5111650058576287221}
+  handPos: {fileID: 0}
+  isSpin: 0
+  playerRB: {fileID: 0}
 --- !u!114 &5492154828854275425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30,23 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kinematicForParticles: 0
---- !u!114 &28213311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4418483858468136665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff1bed65f5773349ade62982fd4f7cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jointLock: {fileID: 0}
-  debugText: {fileID: 0}
-  rb: {fileID: 0}
-  stickTop: {fileID: 5492154828427869687}
-  isSpin: 0
 --- !u!1 &5492154827709149855
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,7 +615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 948526935, guid: 36f2ab4d42056384a8a580b12084da91, type: 3}
       propertyPath: m_Constraints
-      value: 64
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 948526935, guid: 36f2ab4d42056384a8a580b12084da91, type: 3}
       propertyPath: m_IsKinematic
@@ -709,6 +711,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 38.6
       objectReference: {fileID: 0}
+    - target: {fileID: 5155255873559122666, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6be2c998829aa9146868ffcc3be8218a, type: 2}
     - target: {fileID: 6737267722216050778, guid: 36f2ab4d42056384a8a580b12084da91,
         type: 3}
       propertyPath: Controls
@@ -752,15 +759,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36f2ab4d42056384a8a580b12084da91, type: 3}
---- !u!4 &5601327889686138703 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 109185620698590701, guid: 36f2ab4d42056384a8a580b12084da91,
+--- !u!1 &5111650058576287221 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 776931489439922007, guid: 36f2ab4d42056384a8a580b12084da91,
     type: 3}
   m_PrefabInstance: {fileID: 5492154827480425122}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5492154828427869687 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 948526933, guid: 36f2ab4d42056384a8a580b12084da91,
+--- !u!4 &5601327889686138703 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 109185620698590701, guid: 36f2ab4d42056384a8a580b12084da91,
     type: 3}
   m_PrefabInstance: {fileID: 5492154827480425122}
   m_PrefabAsset: {fileID: 0}
@@ -837,12 +844,12 @@ PrefabInstance:
     - target: {fileID: 1597867144772713252, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -6.2000046
+      value: -6.200001
       objectReference: {fileID: 0}
     - target: {fileID: 1597867144772713252, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: -4.7857246
+      value: -4.7857285
       objectReference: {fileID: 0}
     - target: {fileID: 1597867144772713252, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}

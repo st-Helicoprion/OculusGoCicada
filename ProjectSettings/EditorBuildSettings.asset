@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/TextMesh Pro/Scenes/SampleScene.unity
     guid: 3e953c3fab3298646806f5e227fd7086
   - enabled: 0
-    path: Assets/TextMesh Pro/Scenes/JointRetry.unity
+    path: Assets/Scenes/JointRetry.unity
     guid: e6e3e68b54bed7e4db384a848815786c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 482c3d3cb75509d44bd0682b10dd2bbe,
