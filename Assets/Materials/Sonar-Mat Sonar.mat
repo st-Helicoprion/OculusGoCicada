@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sonar-Mat Sonar
-  m_Shader: {fileID: -6465566751694194690, guid: b634d7a197de11e45bb1bc7954be32cf,
+  m_Shader: {fileID: -6465566751694194690, guid: 13c9b1a05fd1b54489b9c688c2a4012c,
     type: 3}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF
   m_LightmapFlags: 4
