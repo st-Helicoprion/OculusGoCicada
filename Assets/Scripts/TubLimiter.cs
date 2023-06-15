@@ -21,7 +21,7 @@ public class TubLimiter : MonoBehaviour
     void Update()
     {
         //debugText.text = stickPos.transform.position.ToString() + "," + handPos.transform.position.ToString() ;
-        //debugText.text = playerRB.velocity.ToString();
+        debugText.text = playerRB.velocity.ToString();
 
         visual.transform.position = Vector3.Lerp(visual.transform.position,transform.position,1);
         visual.transform.LookAt(stickTop.transform.position);
