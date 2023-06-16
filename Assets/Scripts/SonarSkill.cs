@@ -7,7 +7,7 @@ using TMPro;
 public class SonarSkill : MonoBehaviour
 {
     
-    public GameObject prefab, spotGlow;
+    public GameObject prefab, indicator;
     public Transform playerPos, stickPos, handPos;
     public float frequency;
     public float freqTime, count;
@@ -70,6 +70,7 @@ public class SonarSkill : MonoBehaviour
         Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
         frequency = 1/freqTime;
         freqTime=0;
+        indicator.GetComponent<Animator>().CrossFade("ComfirmSonarAnimation",0);
     }
 
     public void Holster()
@@ -79,10 +80,13 @@ public class SonarSkill : MonoBehaviour
         if(sonarIsActive)
         {    
           checkers[i].gameObject.GetComponent<Collider>().enabled = true;
+
         }
         else if(!sonarIsActive)
         {
           checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
+          if(indicator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("IDLE"))
+          indicator.GetComponent<Animator>().CrossFade("ComfirmSonarAnimation",0);
         }    
         }
     }

@@ -13,7 +13,7 @@ public class TubLimiter : MonoBehaviour
     public Rigidbody playerRB;
     public AudioLibrary audioLibAsset;
     public AudioSource audioSource;
-    public PlayerMovement playerState;
+    public SonarSkill playerState;
 
     void Start()
     {
@@ -22,7 +22,7 @@ public class TubLimiter : MonoBehaviour
         playerRB = GameObject.Find("XR Origin").GetComponent<Rigidbody>();
         audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
         audioSource = GameObject.Find("HitBox").GetComponent<AudioSource>();
-        playerState = GameObject.Find("XR Origin").GetComponent<PlayerMovement>();
+        playerState = GameObject.Find("HitBox").GetComponent<SonarSkill>();
     }
     void Update()
     {
@@ -52,7 +52,7 @@ public class TubLimiter : MonoBehaviour
             {
             audioSource.volume+=0.25f*Time.deltaTime;
 
-            if(!audioSource.isPlaying)
+            if(!audioSource.isPlaying&&playerState.sonarIsActive)
             audioSource.PlayOneShot(audioLibAsset.effects[5]);
             }
         }
