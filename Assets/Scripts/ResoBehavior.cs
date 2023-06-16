@@ -63,7 +63,7 @@ public class ResoBehavior : MonoBehaviour
             if(audioSource.isPlaying==false)
             {
                 audioSource.PlayOneShot(audioLibAsset.mechanics[0]);
-                if(curFreq<1.3)
+                if(curFreq<0.7)
                 {
                     resoLayer++;
                     ShowLayerHit();
@@ -99,7 +99,7 @@ public class ResoBehavior : MonoBehaviour
             if(audioSource.isPlaying==false)
             {
                 audioSource.PlayOneShot(audioLibAsset.mechanics[2]);
-                if(curFreq>1.7)
+                if(curFreq>1.3)
                 {
                     resoLayer++;
                     ShowLayerHit();
