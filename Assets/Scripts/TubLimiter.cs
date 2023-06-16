@@ -25,7 +25,7 @@ public class TubLimiter : MonoBehaviour
     void Update()
     {
         //debugText.text = stickPos.transform.position.ToString() + "," + handPos.transform.position.ToString() ;
-        //debugText.text = playerRB.velocity.ToString();
+        debugText.text = playerRB.velocity.ToString();
 
         visual.transform.position = Vector3.Lerp(visual.transform.position,transform.position,1);
         visual.transform.LookAt(stickTop.transform.position);
@@ -46,11 +46,11 @@ public class TubLimiter : MonoBehaviour
         if(isSpin)
         {
             jointLock.zMotion = ConfigurableJointMotion.Locked;
-            if(audioSource.volume<=0.5f)
+            if(audioSource.volume<=1f)
             {
             audioSource.volume+=0.25f*Time.deltaTime;
 
-            if(audioSource.isPlaying==false)
+            if(!audioSource.isPlaying)
             audioSource.PlayOneShot(audioLibAsset.effects[5]);
             }
         }

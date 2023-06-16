@@ -8,7 +8,7 @@ public class ResoBehavior : MonoBehaviour
     public AudioSource audioSource, playerAudSource;
     public Animator anim;
 
-    public enum freqRange {high, medium, low};
+    public enum freqRange {high, low};
 
     public freqRange setFreq;
     public bool isActivated = false, extra;
@@ -63,7 +63,7 @@ public class ResoBehavior : MonoBehaviour
             if(audioSource.isPlaying==false)
             {
                 audioSource.PlayOneShot(audioLibAsset.mechanics[0]);
-                if(curFreq<0.7)
+                if(curFreq<0.5)
                 {
                     resoLayer++;
                     ShowLayerHit();
@@ -76,30 +76,13 @@ public class ResoBehavior : MonoBehaviour
                 }
             }
         }
-        // else if(setFreq == freqRange.medium&&!isActivated)
-        // {
-        //     if(audioSource.isPlaying==false)
-        //     {
-        //         audioSource.PlayOneShot(audioLibAsset.mechanics[1]);
-        //         if(curFreq>1.2&&curFreq<1.8)
-        //         {
-        //            resoLayer++;
-        //            ShowLayerHit();
-        //             if(resoLayer==3)
-        //             {
-
-        //             ResoEffect();
-        //             isActivated=true;
-        //             }
-        //         }
-        //     }
-        // }
+      
         else if(setFreq == freqRange.high&&!isActivated)
         {
             if(audioSource.isPlaying==false)
             {
-                audioSource.PlayOneShot(audioLibAsset.mechanics[2]);
-                if(curFreq>1.3)
+                audioSource.PlayOneShot(audioLibAsset.mechanics[1]);
+                if(curFreq>1)
                 {
                     resoLayer++;
                     ShowLayerHit();
