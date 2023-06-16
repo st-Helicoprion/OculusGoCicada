@@ -42,13 +42,13 @@ public class PlayerMovement : MonoBehaviour
       
         if(isLaptop==true)
        {
-        rb.velocity = transform.forward*moveDir.y*speed.x+transform.right*moveDir.x*speed.x+-transform.up*speed.x/2;
+        rb.velocity = 1.75f*transform.forward*moveDir.y*speed.x+transform.right*moveDir.x*speed.x+-transform.up*speed.x/2;
        }
        else
        {
         Camera.localRotation = new Quaternion(0,curVRRot.y,0,curVRRot.w);
         transform.localRotation = new Quaternion(0,curVRRot.y,0,curVRRot.w);
-        rb.velocity =Camera.forward*moveDir.y*speed.x+Camera.right*moveDir.x*speed.x+-transform.up*speed.x/2;
+        rb.velocity =1.75f*Camera.forward*moveDir.y*speed.x+Camera.right*moveDir.x*speed.x+-transform.up*speed.x/2;
        }
 
        if(startRun==1)

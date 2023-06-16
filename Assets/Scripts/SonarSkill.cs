@@ -6,8 +6,7 @@ using TMPro;
 
 public class SonarSkill : MonoBehaviour
 {
-    public AudioLibrary audioLibAsset;
-    public AudioSource audioSource;
+    
     public GameObject prefab, spotGlow;
     public Transform playerPos, stickPos, handPos;
     public float frequency;
@@ -33,8 +32,7 @@ public class SonarSkill : MonoBehaviour
         handPos = GameObject.Find("RightHand Controller").GetComponent<Transform>().GetChild(0).GetComponent<Transform>();
         checkers = GameObject.FindObjectsOfType<CircleChecker>();
 
-        audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
-        audioSource = GetComponent<AudioSource>();
+       
     }
 
     // Update is called once per frame
@@ -42,6 +40,7 @@ public class SonarSkill : MonoBehaviour
     {
         //debugText.text = sonarIsActive.ToString();
         //debugText.text = playerPos.gameObject.GetComponent<Rigidbody>().velocity.ToString();
+        debugText.text = frequency.ToString();
         
         freqTime+=Time.deltaTime;
     
@@ -81,19 +80,12 @@ public class SonarSkill : MonoBehaviour
         if(sonarIsActive)
         {    
             checkers[i].gameObject.GetComponent<Collider>().enabled = true;
-            //spotGlow.SetActive(true);
-             //count=0;
         }
         else if(!sonarIsActive)
         {
           checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
         }
-        // count+=Time.deltaTime;
-        // if(count>=4)
-        // {
-        //     audioSource.Stop();
-        //     count=0;
-        // }
+        
            
     }
 
@@ -107,10 +99,7 @@ public class SonarSkill : MonoBehaviour
                 {
                     SummonSonar();
                     hitOrder.Clear();  
-                    //if(audioSource.isPlaying==false)
-                    //audioSource.PlayOneShot(audioLibAsset.effects[5],0.5f);
                 }
-                //else audioSource.Stop();
             else return;
            
         }
