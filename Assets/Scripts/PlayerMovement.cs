@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         if(isLaptop==true)
        {
         rb.velocity = 1.75f*transform.forward*moveDir.y*speed.x+transform.right*moveDir.x*speed.x+-transform.up*speed.x/2;
-        if(!audioSource.isPlaying&&moveDir.x==1||!audioSource.isPlaying&&moveDir.y==1)
+        if(!audioSource.isPlaying&&Mathf.Abs(moveDir.x)==1||!audioSource.isPlaying&&Mathf.Abs(moveDir.y)==1)
         audioSource.PlayOneShot(audioLibAsset.effects[8]);
        }
        else
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         Camera.localRotation = new Quaternion(0,curVRRot.y,0,curVRRot.w);
         transform.localRotation = new Quaternion(0,curVRRot.y,0,curVRRot.w);
         rb.velocity =1.75f*Camera.forward*moveDir.y*speed.x+Camera.right*moveDir.x*speed.x+-transform.up*speed.x/2;
-       if(!audioSource.isPlaying&&moveDir.x==1||!audioSource.isPlaying&&moveDir.y==1)
+       if(!audioSource.isPlaying&&Mathf.Abs(moveDir.x)==1||!audioSource.isPlaying&&Mathf.Abs(moveDir.y)==1)
         audioSource.PlayOneShot(audioLibAsset.effects[8]);
        }
 
@@ -64,12 +64,13 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity =transform.forward*startRun*speed.y+-transform.up*speed.x/2;
             if(!audioSource.isPlaying)
-        audioSource.PlayOneShot(audioLibAsset.effects[8],2);
+         audioSource.PlayOneShot(audioLibAsset.effects[9]);
+        
         }
         else
         rb.velocity =Camera.forward*startRun*speed.y+-transform.up*speed.x/2;
         if(!audioSource.isPlaying)
-        audioSource.PlayOneShot(audioLibAsset.effects[8],2);
+        audioSource.PlayOneShot(audioLibAsset.effects[9]);
        }
 
         float clicky = interact.ReadValue<float>();

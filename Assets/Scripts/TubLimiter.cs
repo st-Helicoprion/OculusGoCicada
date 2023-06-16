@@ -13,14 +13,16 @@ public class TubLimiter : MonoBehaviour
     public Rigidbody playerRB;
     public AudioLibrary audioLibAsset;
     public AudioSource audioSource;
+    public PlayerMovement playerState;
 
     void Start()
     {
         jointLock = GetComponent<ConfigurableJoint>();
         rb =  GetComponent<Rigidbody>();
         playerRB = GameObject.Find("XR Origin").GetComponent<Rigidbody>();
-         audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
+        audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
         audioSource = GameObject.Find("HitBox").GetComponent<AudioSource>();
+        playerState = GameObject.Find("XR Origin").GetComponent<PlayerMovement>();
     }
     void Update()
     {

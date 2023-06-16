@@ -38,9 +38,9 @@ public class SonarSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //debugText.text = sonarIsActive.ToString();
+        debugText.text = sonarIsActive.ToString();
         //debugText.text = playerPos.gameObject.GetComponent<Rigidbody>().velocity.ToString();
-        debugText.text = frequency.ToString();
+        //debugText.text = frequency.ToString();
         
         freqTime+=Time.deltaTime;
     
@@ -67,28 +67,24 @@ public class SonarSkill : MonoBehaviour
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
-          frequency = 1/freqTime;
-            freqTime=0;
+        Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
+        frequency = 1/freqTime;
+        freqTime=0;
     }
 
     public void Holster()
     {
-        
          for(int i =0; i<checkers.Length;i++)
         {
         if(sonarIsActive)
         {    
-            checkers[i].gameObject.GetComponent<Collider>().enabled = true;
+          checkers[i].gameObject.GetComponent<Collider>().enabled = true;
         }
         else if(!sonarIsActive)
         {
           checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
+        }    
         }
-        
-           
-    }
-
     }
 
     public void TrackCircle()

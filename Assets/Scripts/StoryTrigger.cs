@@ -6,9 +6,10 @@ using UnityEngine.UI;
  [RequireComponent(typeof(AudioSource))]
 public class StoryTrigger : MonoBehaviour
 {
+    public enum triggerFunctions {teleport, teleportAndScare, ambience};
+    public triggerFunctions setFunction;
     public Transform targetPos, currPos;
     public GameObject currMap, targetMap, jumpScare;
-    public Image blackScreen;
     public AudioClip jumpScareSound;
     public AudioSource triggerAudSource;
 
@@ -21,25 +22,33 @@ public class StoryTrigger : MonoBehaviour
    {
         if(other.gameObject.CompareTag("Player"))
         {
-          currPos = other.gameObject.transform;
-          Debug.Log("Teleporting...");
-          JumpScare();
-          Invoke("ReplaceMap", 1f);
-          Invoke("MovePlayer", 2f);
+          if(setFunction==triggerFunctions.teleportAndScare)
+          {
+            currPos = other.gameObject.transform;
+            Debug.Log("Teleporting...");
+            JumpScare();
+            Invoke("ReplaceMap", 1f);
+            Invoke("MovePlayer", 2f);
+          }
+
+          if(setFunction==triggerFunctions.teleport)
+          {
+            Debug.Log("Teleporting...");
+            Invoke("ReplaceMap", 1f);
+            Invoke("MovePlayer", 2f);
+          }
           
+          if(setFunction==triggerFunctions.ambience)
+          {
+            Debug.Log("Event entered");
+            EventEntered();
+          }
         }
    }
 
    public void MovePlayer()
    {
-      Color panelColor = blackScreen.color;
-      panelColor.a=255;
-      
-      if(panelColor.a==255)
-      {
-        currPos.position=targetPos.position;
-        panelColor.a=0;
-      }
+      currPos.position=targetPos.position;
       currPos.gameObject.GetComponent<Rigidbody>().isKinematic = false;
    }
 
@@ -54,5 +63,11 @@ public class StoryTrigger : MonoBehaviour
       currPos.gameObject.GetComponent<Rigidbody>().isKinematic = true;
       jumpScare.SetActive(true);
       triggerAudSource.PlayOneShot(jumpScareSound);
+   }
+
+   public void EventEntered()
+   {
+      triggerAudSource.PlayOneShot(jumpScareSound);
+      this.gameObject.GetComponent<Collider>().enabled = false;
    }
 }

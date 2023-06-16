@@ -51,8 +51,8 @@ public class ResoBehavior : MonoBehaviour
         if(transform.gameObject.CompareTag("Light"))
         {
             anim.CrossFade("Glow", 0f);
-            audioSource.PlayOneShot(audioLibAsset.effects[7],.25f);
-            playerAudSource.PlayOneShot(audioLibAsset.effects[6],.25f);
+            audioSource.PlayOneShot(audioLibAsset.effects[7]);
+            playerAudSource.PlayOneShot(audioLibAsset.effects[6]);
         }
     }
 
