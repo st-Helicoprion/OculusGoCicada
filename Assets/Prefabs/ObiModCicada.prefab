@@ -21,6 +21,9 @@ MonoBehaviour:
   stickTop: {fileID: 5492154828427869687}
   isSpin: 0
   playerRB: {fileID: 0}
+  audioLibAsset: {fileID: 0}
+  audioSource: {fileID: 0}
+  playerState: {fileID: 0}
 --- !u!114 &5492154828854275425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +70,7 @@ GameObject:
   - component: {fileID: 5492154827709149851}
   - component: {fileID: 5492154827709149848}
   - component: {fileID: 5492154827709149849}
+  - component: {fileID: 2115693931}
   m_Layer: 0
   m_Name: RopeRenderer
   m_TagString: Untagged
@@ -100,130 +104,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61104f33a3f344db9b7e0d0cda41a9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  solverIndices: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c000000
+  solverIndices: 000000000100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000
   m_CollisionMaterial: {fileID: 0}
   m_SurfaceCollisions: 0
   m_SelfCollisions: 0
-  restLength_: 4.613809
+  restLength_: 5.3014255
   elements:
   - particle1: 0
     particle2: 1
-    restLength: 0.17788085
+    restLength: 0.18980409
     constraintForce: 0
     tearResistance: 1
   - particle1: 1
     particle2: 2
-    restLength: 0.19346507
+    restLength: 0.19689512
     constraintForce: 0
     tearResistance: 1
   - particle1: 2
     particle2: 3
-    restLength: 0.19354036
+    restLength: 0.1977161
     constraintForce: 0
     tearResistance: 1
   - particle1: 3
     particle2: 4
-    restLength: 0.19395271
+    restLength: 0.19950747
     constraintForce: 0
     tearResistance: 1
   - particle1: 4
     particle2: 5
-    restLength: 0.19525003
+    restLength: 0.19477323
     constraintForce: 0
     tearResistance: 1
   - particle1: 5
     particle2: 6
-    restLength: 0.1923801
+    restLength: 0.19609204
     constraintForce: 0
     tearResistance: 1
   - particle1: 6
     particle2: 7
-    restLength: 0.19262664
+    restLength: 0.19965538
     constraintForce: 0
     tearResistance: 1
   - particle1: 7
     particle2: 8
-    restLength: 0.19470179
+    restLength: 0.19383527
     constraintForce: 0
     tearResistance: 1
   - particle1: 8
     particle2: 9
-    restLength: 0.19235215
+    restLength: 0.19806966
     constraintForce: 0
     tearResistance: 1
   - particle1: 9
     particle2: 10
-    restLength: 0.1935323
+    restLength: 0.19564797
     constraintForce: 0
     tearResistance: 1
   - particle1: 10
     particle2: 11
-    restLength: 0.1934605
+    restLength: 0.19724856
     constraintForce: 0
     tearResistance: 1
   - particle1: 11
     particle2: 12
-    restLength: 0.19323574
+    restLength: 0.19630073
     constraintForce: 0
     tearResistance: 1
   - particle1: 12
     particle2: 13
-    restLength: 0.1932065
+    restLength: 0.19693807
     constraintForce: 0
     tearResistance: 1
   - particle1: 13
     particle2: 14
-    restLength: 0.1935101
+    restLength: 0.19645733
     constraintForce: 0
     tearResistance: 1
   - particle1: 14
     particle2: 15
-    restLength: 0.19347295
+    restLength: 0.19693808
     constraintForce: 0
     tearResistance: 1
   - particle1: 15
     particle2: 16
-    restLength: 0.19248188
+    restLength: 0.19630119
     constraintForce: 0
     tearResistance: 1
   - particle1: 16
     particle2: 17
-    restLength: 0.19462433
+    restLength: 0.1972485
     constraintForce: 0
     tearResistance: 1
   - particle1: 17
     particle2: 18
-    restLength: 0.19247952
+    restLength: 0.19564763
     constraintForce: 0
     tearResistance: 1
   - particle1: 18
     particle2: 19
-    restLength: 0.19270192
+    restLength: 0.19807
     constraintForce: 0
     tearResistance: 1
   - particle1: 19
     particle2: 20
-    restLength: 0.19515313
+    restLength: 0.19383492
     constraintForce: 0
     tearResistance: 1
   - particle1: 20
     particle2: 21
-    restLength: 0.19383016
+    restLength: 0.19965544
     constraintForce: 0
     tearResistance: 1
   - particle1: 21
     particle2: 22
-    restLength: 0.19346876
+    restLength: 0.19609192
     constraintForce: 0
     tearResistance: 1
   - particle1: 22
     particle2: 23
-    restLength: 0.19381367
+    restLength: 0.19477335
     constraintForce: 0
     tearResistance: 1
   - particle1: 23
     particle2: 24
-    restLength: 0.17868786
+    restLength: 0.19950795
+    constraintForce: 0
+    tearResistance: 1
+  - particle1: 24
+    particle2: 25
+    restLength: 0.19771598
+    constraintForce: 0
+    tearResistance: 1
+  - particle1: 25
+    particle2: 26
+    restLength: 0.19689514
+    constraintForce: 0
+    tearResistance: 1
+  - particle1: 26
+    particle2: 27
+    restLength: 0.18980408
     constraintForce: 0
     tearResistance: 1
   m_RopeBlueprint: {fileID: 11400000, guid: ca9e262f11fb246cbb6d2177bacb27ea, type: 2}
@@ -359,6 +378,22 @@ MonoBehaviour:
   m_ConstrainOrientation: 0
   m_Compliance: 0
   m_BreakThreshold: Infinity
+--- !u!54 &2115693931
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5492154827709149855}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5492154829466858987
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +568,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -731,10 +766,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: CicadaStick
       objectReference: {fileID: 0}
+    - target: {fileID: 1126973295290889781, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.1505392
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126973295290889781, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.015693856
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148710060859128865, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148710060859128865, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148710060859128865, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148710060859128865, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2148710060859128871, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e745f35e15c55124c90fa65a2ca12201, type: 2}
     - target: {fileID: 3338424548253574916, guid: 36f2ab4d42056384a8a580b12084da91,
         type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3359464615822805345, guid: 36f2ab4d42056384a8a580b12084da91,
         type: 3}
@@ -754,7 +824,22 @@ PrefabInstance:
     - target: {fileID: 3393188994242277625, guid: 36f2ab4d42056384a8a580b12084da91,
         type: 3}
       propertyPath: thickness
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436561900849050420, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.065486625
+      objectReference: {fileID: 0}
+    - target: {fileID: 3436561900849050420, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.007743311
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457174697291682583, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 15.8
       objectReference: {fileID: 0}
     - target: {fileID: 4816587880501572910, guid: 36f2ab4d42056384a8a580b12084da91,
         type: 3}
@@ -786,6 +871,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824623259561930327, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.07546188
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824623259561930327, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.01273094
       objectReference: {fileID: 0}
     - target: {fileID: 8062415017932197208, guid: 36f2ab4d42056384a8a580b12084da91,
         type: 3}
@@ -1045,8 +1140,13 @@ PrefabInstance:
       objectReference: {fileID: 5492154828427869684}
     - target: {fileID: 8108240897503185538, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
+      propertyPath: m_Height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108240897503185538, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
+        type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8108240897503185538, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
@@ -1076,7 +1176,7 @@ PrefabInstance:
     - target: {fileID: 8172228060861607090, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
       propertyPath: m_TagString
-      value: Buzz
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1597867144772713252, guid: d5bd791a4f159d44b96c5de5e5bfcfc7, type: 3}
@@ -1148,7 +1248,7 @@ PrefabInstance:
     - target: {fileID: 1597867144772713252, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -7.1200027
+      value: -6.1200027
       objectReference: {fileID: 0}
     - target: {fileID: 1597867144772713252, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
@@ -1294,12 +1394,12 @@ PrefabInstance:
     - target: {fileID: 8108240897503185538, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
       propertyPath: m_Height
-      value: 0.02
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 8108240897503185538, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
       propertyPath: m_Radius
-      value: 0.002
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 8108240897503185538, guid: d5bd791a4f159d44b96c5de5e5bfcfc7,
         type: 3}
