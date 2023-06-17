@@ -18,6 +18,13 @@ public class StoryTrigger : MonoBehaviour
     triggerAudSource = GetComponent<AudioSource>();
   }
 
+  void Update()
+  {
+    
+ 
+
+  }
+
    private void OnTriggerEnter(Collider other)
    {
         if(other.gameObject.CompareTag("Player"))
@@ -61,7 +68,9 @@ public class StoryTrigger : MonoBehaviour
    public void JumpScare()
    {
       currPos.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+      //jumpScare.transform.position = currPos.forward + new Vector3(0,3,1);
       jumpScare.SetActive(true);
+      jumpScare.transform.LookAt(currPos.position);
       triggerAudSource.PlayOneShot(jumpScareSound);
    }
 
