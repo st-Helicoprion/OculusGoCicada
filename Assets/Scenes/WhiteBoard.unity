@@ -19073,7 +19073,7 @@ Transform:
   m_GameObject: {fileID: 379062089}
   m_LocalRotation: {x: -0, y: 0.000000029802319, z: -0, w: 1}
   m_LocalPosition: {x: 0.056461, y: 0, z: -0.29093}
-  m_LocalScale: {x: 3.097271, y: 3.097271, z: 3.097271}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 277040567}
   m_RootOrder: 1
@@ -87535,7 +87535,7 @@ PrefabInstance:
     - target: {fileID: 7545032328050517089, guid: b5677ab06fb12884f91887fc390b9b47,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7545032328050517089, guid: b5677ab06fb12884f91887fc390b9b47,
         type: 3}
@@ -96779,7 +96779,7 @@ Transform:
   m_GameObject: {fileID: 1780636161}
   m_LocalRotation: {x: -0, y: 0.000000029802319, z: -0, w: 1}
   m_LocalPosition: {x: 0.087, y: 0, z: -0.187}
-  m_LocalScale: {x: 2.1704, y: 2.1704, z: 2.1704}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 2145559684}
   m_RootOrder: 1
@@ -111030,6 +111030,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2061492792}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2065131413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7545032328050517091, guid: b5677ab06fb12884f91887fc390b9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614938337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!199 &2065131414 stripped
+ParticleSystemRenderer:
+  m_CorrespondingSourceObject: {fileID: 7545032328050517090, guid: b5677ab06fb12884f91887fc390b9b47,
+    type: 3}
+  m_PrefabInstance: {fileID: 1614938337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &2065131415
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065131413}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.051735282, y: -0.0025568008, z: 2.5323956}
+  m_Size: 7.833076
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.0052579977
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2065131414}
+  m_Enabled: 1
 --- !u!1 &2065926972
 GameObject:
   m_ObjectHideFlags: 0
