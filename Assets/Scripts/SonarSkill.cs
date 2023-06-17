@@ -85,6 +85,7 @@ public class SonarSkill : MonoBehaviour
         else if(!sonarIsActive)
         {
           checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
+          
           if(indicator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("IDLE"))
           indicator.GetComponent<Animator>().CrossFade("ComfirmSonarAnimation",0);
         }    
