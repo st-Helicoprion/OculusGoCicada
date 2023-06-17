@@ -12,7 +12,7 @@ public class GateMarker : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        storyManager = GameObject.Find("StoryManager").GetComponent<StoryManager>();
+        storyManager = GameObject.Find("XR Interaction Manager").GetComponent<StoryManager>();
     }
 
     // Update is called once per frame

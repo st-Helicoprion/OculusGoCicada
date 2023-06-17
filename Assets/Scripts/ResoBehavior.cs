@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ResoBehavior : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class ResoBehavior : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         playerAudSource = GameObject.Find("XR Origin").GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
+        storyManager = GameObject.Find("XR Interaction Manager").GetComponent<StoryManager>();
 
         audioSource.spatialBlend =1;
         audioSource.maxDistance = 50;
@@ -44,8 +46,12 @@ public class ResoBehavior : MonoBehaviour
             ExtraResoEffect();
 
         }
+       
+    }
 
-        if(other.CompareTag("KeyItem"))
+    private void OnTriggerStay(Collider other)
+    {
+         if(other.CompareTag("KeyItem"))
         {
             anim = other.gameObject.GetComponent<Animator>();
         }
@@ -68,9 +74,19 @@ public class ResoBehavior : MonoBehaviour
 
         if(transform.gameObject.CompareTag("KeyBox"))
         {
-           anim.SetTrigger("Unlock");
-           anim.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-           storyManager.stagesCompleted++;
+           if(anim)
+           {
+                anim.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                transform.GetComponent<XRSocketInteractor>().enabled = false;
+                anim.SetTrigger("Unlock");
+                storyManager.stagesCompleted++;
+                
+           }
+           else if(!anim) 
+           {
+            resoLayer=0;
+            isActivated=false;
+           }
         }
     }
 
@@ -88,8 +104,8 @@ public class ResoBehavior : MonoBehaviour
                     if(resoLayer==3)
                     {
 
-                    ResoEffect();
                     isActivated=true;
+                    ResoEffect();
                     }
                 }
             }
@@ -107,8 +123,8 @@ public class ResoBehavior : MonoBehaviour
                     if(resoLayer==3)
                     {
 
-                    ResoEffect();
                     isActivated=true;
+                    ResoEffect();
                     }
                 }
             }
