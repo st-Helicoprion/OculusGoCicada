@@ -40,9 +40,9 @@ public class SonarBehavior : MonoBehaviour
         transform.position += Vector3.up * speed * Time.deltaTime;
         distance += speed*Time.deltaTime;
         Color sonarColor = sonarMat.color;
-        sonarColor.r-= .1f*Time.deltaTime;
-        sonarColor.g-= .1f*Time.deltaTime;
-        sonarColor.b-= .1f*Time.deltaTime;
+        sonarColor.r-= .05f*Time.deltaTime;
+        sonarColor.g-= .05f*Time.deltaTime;
+        sonarColor.b-= .05f*Time.deltaTime;
         sonarMat.color = sonarColor;
         if(sonarMat.color.r<=0)
         {

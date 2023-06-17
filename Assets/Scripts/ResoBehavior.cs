@@ -15,7 +15,8 @@ public class ResoBehavior : MonoBehaviour
     public int resoLayer;
     SonarBehavior sonarBehavior;
     float curFreq;
-    public GameObject particle;
+    public GameObject particle, heldItem; 
+    public StoryManager storyManager;
 
 
     // Start is called before the first frame update
@@ -43,6 +44,11 @@ public class ResoBehavior : MonoBehaviour
             ExtraResoEffect();
 
         }
+
+        if(other.CompareTag("KeyItem"))
+        {
+            anim = other.gameObject.GetComponent<Animator>();
+        }
     }
 
 
@@ -53,6 +59,18 @@ public class ResoBehavior : MonoBehaviour
             anim.CrossFade("Glow", 0f);
             audioSource.PlayOneShot(audioLibAsset.effects[7]);
             playerAudSource.PlayOneShot(audioLibAsset.effects[6]);
+            if(heldItem!=null)
+            {
+                Instantiate(heldItem,transform.position+new Vector3(-1,1,-1),Quaternion.identity);
+            }
+            else return;
+        }
+
+        if(transform.gameObject.CompareTag("KeyBox"))
+        {
+           anim.SetTrigger("Unlock");
+           anim.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+           storyManager.stagesCompleted++;
         }
     }
 
@@ -102,12 +120,6 @@ public class ResoBehavior : MonoBehaviour
         if(transform.gameObject.CompareTag("Girl")&&audioSource.isPlaying==false)
         {
             audioSource.PlayOneShot(audioLibAsset.effects[Random.Range(1,4)]); 
-            
-        }
-
-        if(transform.gameObject.CompareTag("Goal")&&audioSource.isPlaying==false)
-        {
-            audioSource.PlayOneShot(audioLibAsset.effects[0]); 
             
         }
     }
