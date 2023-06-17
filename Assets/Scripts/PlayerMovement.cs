@@ -10,8 +10,9 @@ public class PlayerMovement : MonoBehaviour
     public Transform Camera;
     private InputAction move, interact, vrLook, run, replay;
 
+    public AudioSource audioSource; public AudioLibrary audioLibAsset;
     private Rigidbody rb;
-    public float speed;
+    public Vector2 speed;
     public SonarSkill sonarSkill; public ForLaptopDev Laptop;
     public bool isSonar=false, isLaptop;
     // Start is called before the first frame update
@@ -27,6 +28,10 @@ public class PlayerMovement : MonoBehaviour
         replay = PlayerControls.FindAction("Replay");
         move.Enable(); interact.Enable(); vrLook.Enable(); run.Enable();
         replay.Enable();
+        
+        sonarSkill = GameObject.Find("HitBox").GetComponent<SonarSkill>();
+        audioSource = GetComponent<AudioSource>();
+        audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
     }
 
     // Update is called once per frame
@@ -39,25 +44,33 @@ public class PlayerMovement : MonoBehaviour
       
         if(isLaptop==true)
        {
-        rb.velocity =transform.forward*moveDir.y*speed+transform.right*moveDir.x*speed+-transform.up*speed/2;
+        rb.velocity = 1.75f*transform.forward*moveDir.y*speed.x+transform.right*moveDir.x*speed.x+-transform.up*speed.x/2;
+        if(!audioSource.isPlaying&&moveDir.x!=0&&startRun==0||!audioSource.isPlaying&&moveDir.y!=0&&startRun==0)
+        audioSource.PlayOneShot(audioLibAsset.effects[8]);
        }
        else
        {
         Camera.localRotation = new Quaternion(0,curVRRot.y,0,curVRRot.w);
         transform.localRotation = new Quaternion(0,curVRRot.y,0,curVRRot.w);
-        rb.velocity =Camera.forward*moveDir.y*speed+Camera.right*moveDir.x*speed+-transform.up*speed/2;
+        rb.velocity =1.75f*Camera.forward*moveDir.y*speed.x+Camera.right*moveDir.x*speed.x+-transform.up*speed.x/2;
+       if(!audioSource.isPlaying&&moveDir.x!=0&&startRun==0||!audioSource.isPlaying&&moveDir.y!=0&&startRun==0)
+        audioSource.PlayOneShot(audioLibAsset.effects[8]);
        }
 
        if(startRun==1)
        {
-        speed = 5;
         if(isLaptop)
         {
-            rb.velocity =transform.forward*startRun*speed+-transform.up*speed/2;
+            rb.velocity =transform.forward*startRun*speed.y+-transform.up*speed.x/2;
+            if(!audioSource.isPlaying)
+         audioSource.PlayOneShot(audioLibAsset.effects[9]);
+        
         }
         else
-        rb.velocity =Camera.forward*startRun*speed+-transform.up*speed/2;
-       }else speed=3f;
+        rb.velocity =Camera.forward*startRun*speed.y+-transform.up*speed.x/2;
+        if(!audioSource.isPlaying)
+        audioSource.PlayOneShot(audioLibAsset.effects[9]);
+       }
 
         float clicky = interact.ReadValue<float>();
         float restart = replay.ReadValue<float>();
@@ -66,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
         {
         Laptop.enabled = true;
         isLaptop = true;
-        sonarSkill = Transform.FindObjectOfType<SonarSkill>();
         sonarSkill.SummonSonar();
         isSonar=true;
         }

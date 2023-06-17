@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class SonarSkill : MonoBehaviour
 {
-    public AudioLibrary audioLibAsset;
-    public AudioSource audioSource;
-    public GameObject prefab;
+    
+    public GameObject prefab, indicator;
     public Transform playerPos, stickPos, handPos;
     public float frequency;
     public float freqTime, count;
+    public TextMeshProUGUI debugText;
 
     [Header("Circle Checker")]
     public InputActionAsset Controls;
     private InputAction vrInteract;
     public CircleChecker[] checkers;
     public List<int> hitOrder = new List<int>();
+    public bool sonarIsActive=false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,18 +28,19 @@ public class SonarSkill : MonoBehaviour
         vrInteract.Enable();
 
         playerPos = GameObject.Find("XR Origin").GetComponent<Transform>();
-        stickPos = GameObject.Find("ObiModCicada").GetComponent<Transform>();
+        stickPos = GameObject.Find("CicadaStick").GetComponent<Transform>();
         handPos = GameObject.Find("RightHand Controller").GetComponent<Transform>().GetChild(0).GetComponent<Transform>();
         checkers = GameObject.FindObjectsOfType<CircleChecker>();
 
-        audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
-        audioSource = GetComponent<AudioSource>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        Holster();
+        debugText.text = sonarIsActive.ToString();
+        //debugText.text = playerPos.gameObject.GetComponent<Rigidbody>().velocity.ToString();
+        //debugText.text = frequency.ToString();
         
         freqTime+=Time.deltaTime;
     
@@ -47,40 +50,46 @@ public class SonarSkill : MonoBehaviour
              hitOrder.Clear(); 
         }
 
-       
+        Vector3 stickPosSplit = stickPos.position;
+        Vector3 handPosSplit = handPos.position;
+        if(Mathf.Abs(stickPosSplit.x-handPosSplit.x)<=0.15f
+        &&Mathf.Abs(stickPosSplit.y-handPosSplit.y)<=0.15f
+        &&Mathf.Abs(stickPosSplit.y-handPosSplit.y)<=0.15f)
+        {
+            sonarIsActive = true;    
+        }
+        else sonarIsActive = false;
+
+        Holster();
+        
+        
     }
 
     public void SummonSonar()
     {
-         Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
-          frequency = freqTime;
-            freqTime=0;
+        Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
+        frequency = 1/freqTime;
+        freqTime=0;
+        indicator.GetComponent<Animator>().CrossFade("ComfirmSonarAnimation",0);
     }
 
     public void Holster()
     {
-         float triggy = vrInteract.ReadValue<float>();
-        
          for(int i =0; i<checkers.Length;i++)
         {
-        if(triggy==1)
+        if(sonarIsActive)
         {    
-            checkers[i].gameObject.GetComponent<Collider>().enabled = true;
-             //count=0;
+          checkers[i].gameObject.GetComponent<Collider>().enabled = true;
+
         }
-        else if(triggy==0)
+        else if(!sonarIsActive)
         {
           checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
+          
+          if(indicator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("IDLE"))
+          indicator.GetComponent<Animator>().CrossFade("ComfirmSonarAnimation",0);
+        }    
         }
-        // count+=Time.deltaTime;
-        // if(count>=4)
-        // {
-        //     audioSource.Stop();
-        //     count=0;
-        // }
-           
-    }
-
     }
 
     public void TrackCircle()
@@ -91,10 +100,7 @@ public class SonarSkill : MonoBehaviour
                 {
                     SummonSonar();
                     hitOrder.Clear();  
-                    //if(audioSource.isPlaying==false)
-                    //audioSource.PlayOneShot(audioLibAsset.effects[5],0.5f);
                 }
-                //else audioSource.Stop();
             else return;
            
         }
