@@ -612,7 +612,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -857,6 +857,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -944628639613478452, guid: 0fbdac2f434f8d147934b44dd1a53682,
         type: 3}
+    - target: {fileID: 6737267722216050778, guid: 36f2ab4d42056384a8a580b12084da91,
+        type: 3}
+      propertyPath: altitude
+      value: -70
+      objectReference: {fileID: 0}
     - target: {fileID: 6737267722216050778, guid: 36f2ab4d42056384a8a580b12084da91,
         type: 3}
       propertyPath: indicator

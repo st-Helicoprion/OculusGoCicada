@@ -9,7 +9,7 @@ public class SonarSkill : MonoBehaviour
     
     public GameObject prefab, indicator;
     public Transform playerPos, stickPos, handPos;
-    public float frequency;
+    public float frequency, altitude;
     public float freqTime, count;
     public TextMeshProUGUI debugText;
 
@@ -67,7 +67,7 @@ public class SonarSkill : MonoBehaviour
 
     public void SummonSonar()
     {
-        Instantiate(prefab, playerPos.position+new Vector3(0,-50f,0),Quaternion.Euler(-90,0,0));
+        Instantiate(prefab, playerPos.position+new Vector3(0,altitude,0),Quaternion.Euler(-90,0,0));
         frequency = 1/freqTime;
         freqTime=0;
         indicator.GetComponent<Animator>().CrossFade("ComfirmSonarAnimation",0);
@@ -85,7 +85,7 @@ public class SonarSkill : MonoBehaviour
         else if(!sonarIsActive)
         {
           checkers[i].gameObject.GetComponent<Collider>().enabled = false; 
-          
+
           if(indicator.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("IDLE"))
           indicator.GetComponent<Animator>().CrossFade("ComfirmSonarAnimation",0);
         }    
