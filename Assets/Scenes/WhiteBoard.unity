@@ -8614,6 +8614,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &223628301
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10784,6 +10786,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &264780339
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11462,6 +11466,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!65 &273802784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21976,6 +21982,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &513061139
 AudioSource:
   m_ObjectHideFlags: 0
@@ -33282,6 +33290,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &740484083
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54980,6 +54990,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &1162340590
 AudioSource:
   m_ObjectHideFlags: 0
@@ -81000,6 +81012,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &1578208825
 AudioSource:
   m_ObjectHideFlags: 0
@@ -103446,6 +103460,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &2006207195
 AudioSource:
   m_ObjectHideFlags: 0
@@ -105621,6 +105637,8 @@ MonoBehaviour:
   extra: 1
   resoLayer: 0
   particle: {fileID: 0}
+  heldItem: {fileID: 0}
+  storyManager: {fileID: 0}
 --- !u!82 &2047955617
 AudioSource:
   m_ObjectHideFlags: 0
