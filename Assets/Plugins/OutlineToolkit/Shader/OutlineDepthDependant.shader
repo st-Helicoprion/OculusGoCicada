@@ -8,6 +8,7 @@
 		SubShader
 	{
 		Blend SrcAlpha OneMinusSrcAlpha
+		
 		Tags { "RenderType" = "Transparent" }
 		LOD 100
 

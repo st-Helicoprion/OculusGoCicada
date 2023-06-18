@@ -7,10 +7,11 @@ TagManager:
   - Buzz
   - Door
   - Girl
-  - Goal
   - Light
   - Sonar
   - Story
+  - KeyBox
+  - KeyItem
   layers:
   - Default
   - TransparentFX

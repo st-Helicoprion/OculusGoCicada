@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e733602f8a24e34b8fbb893705fe0b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonarScale: 30
+  sonarScale: 40
   speed: 10
   distance: 0
   sonarSkill: {fileID: 0}
