@@ -38,7 +38,7 @@ public class SonarSkill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        debugText.text = sonarIsActive.ToString();
+        //debugText.text = sonarIsActive.ToString();
         //debugText.text = playerPos.gameObject.GetComponent<Rigidbody>().velocity.ToString();
         //debugText.text = frequency.ToString();
         
