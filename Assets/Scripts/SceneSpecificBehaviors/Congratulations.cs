@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Congratulations : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI text, text1;
     public AudioSource audioSource;
     public Image panel;
 
@@ -14,11 +14,19 @@ public class Congratulations : MonoBehaviour
    {
      if(other.CompareTag("Player"))
      {
-        text.text = "You have reached the end of our demo\nplease look forward to more good stuff coming\nfrom our team";
+        text.gameObject.SetActive(true); text1.gameObject.SetActive(true);
+        text.text = "You have reached the end of our demo\nplease look forward to more good stuff coming\nfrom our team\nThank you very much for playing";
+        text1.text = "Press the back button to restart the demo";
         audioSource.Play();
-        Color panelColor = panel.color;
+        StartCoroutine("PanelFadeIn");
+     }
+   }
+
+   IEnumerator PanelFadeIn()
+   {
+    Color panelColor = panel.color;
         panelColor.a += 0.25f*Time.deltaTime;
         panel.color = panelColor;
-     }
+     yield return null;
    }
 }
