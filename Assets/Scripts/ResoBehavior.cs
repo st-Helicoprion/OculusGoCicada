@@ -79,6 +79,7 @@ public class ResoBehavior : MonoBehaviour
                 anim.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 transform.GetComponent<XRSocketInteractor>().enabled = false;
                 anim.SetTrigger("Unlock");
+                anim.GetComponent<AudioSource>().Play();
                 storyManager.stagesCompleted++;
                 
            }

@@ -18,15 +18,7 @@ public class Congratulations : MonoBehaviour
         text.text = "You have reached the end of our demo\nplease look forward to more good stuff coming\nfrom our team\nThank you very much for playing";
         text1.text = "Press the back button to restart the demo";
         audioSource.Play();
-        StartCoroutine("PanelFadeIn");
+        panel.GetComponent<Animator>().CrossFade("FadeToBlack",0);
      }
-   }
-
-   IEnumerator PanelFadeIn()
-   {
-    Color panelColor = panel.color;
-        panelColor.a += 0.25f*Time.deltaTime;
-        panel.color = panelColor;
-     yield return null;
    }
 }
