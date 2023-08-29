@@ -5,19 +5,13 @@ using UnityEngine;
 public class SonarBehavior : MonoBehaviour
 {
     public float sonarScale, speed, distance;
-    public SonarSkill sonarSkill;
-    public float curFreq;
     public Material sonarMat;
 
     // Start is called before the first frame update
     void Start()
     {
-        sonarSkill = GameObject.Find("HitBox").GetComponent<SonarSkill>();
         sonarMat = this.gameObject.GetComponent<Renderer>().material;
-        curFreq = sonarSkill.frequency;
-
         transform.localScale*=sonarScale;
-        
     }
 
     // Update is called once per frame

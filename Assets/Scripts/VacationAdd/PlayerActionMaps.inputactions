@@ -1,5 +1,5 @@
 {
-    "name": "PlayerActions",
+    "name": "PlayerActionMaps",
     "maps": [
         {
             "name": "Player",
@@ -54,15 +54,6 @@
                     "name": "VRInteract",
                     "type": "Button",
                     "id": "43d2b260-15a4-4e8f-a42f-ab7b1dc95aa3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Replay",
-                    "type": "Button",
-                    "id": "cbb50f6c-8135-4671-8c02-2ecce6e2d748",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -212,10 +203,56 @@
                     "action": "VRInteract",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Testing",
+            "id": "27bef5e7-62bf-4b89-817d-fe153e78a14e",
+            "actions": [
+                {
+                    "name": "Space",
+                    "type": "Button",
+                    "id": "55d471f1-cc75-4d32-bb47-7d0cd1e82254",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Replay",
+                    "type": "Button",
+                    "id": "086cda7e-3e34-426d-b328-3af89d0f1bab",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LightOff",
+                    "type": "Button",
+                    "id": "60539944-1b04-4b1b-9520-bfac7ce8d8a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ab09a4b7-e207-4ed4-9817-66cc9bbe593b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Space",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "6a759a47-c927-4739-bfe9-4a3281d1d8c3",
+                    "id": "b349c181-34ad-427c-8b0f-e9f381150631",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
@@ -226,12 +263,23 @@
                 },
                 {
                     "name": "",
-                    "id": "24f504a5-510f-44a5-9cef-8afe4c649d8c",
+                    "id": "2790b302-6eb9-449d-814b-6f95c7f7cbd4",
                     "path": "<XRController>{RightHand}/back",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Replay",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d931b783-60a1-420c-a106-8abe060d282f",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LightOff",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
