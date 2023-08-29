@@ -21,7 +21,7 @@ public class ForLaptopDev : MonoBehaviour
 
          var PlayerControls = Controls.FindActionMap("Player");
          look = PlayerControls.FindAction("Look");
-       
+
          look.Enable();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
         VRController.SetActive(false);

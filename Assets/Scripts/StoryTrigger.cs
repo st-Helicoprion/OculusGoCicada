@@ -18,13 +18,6 @@ public class StoryTrigger : MonoBehaviour
     triggerAudSource = GetComponent<AudioSource>();
   }
 
-  void Update()
-  {
-    
- 
-
-  }
-
    private void OnTriggerEnter(Collider other)
    {
         if(other.gameObject.CompareTag("Player"))

@@ -6,7 +6,10 @@ public class GateMarker : MonoBehaviour
 {
     public int gateID;
     public Animator anim;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
     public StoryManager storyManager;
+    public bool isActivated=false;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,9 @@ public class GateMarker : MonoBehaviour
         if(storyManager.stagesCompleted==gateID)
         {
             anim.SetTrigger("Completed");
+            if(!audioSource.isPlaying&&isActivated==false)
+            audioSource.PlayOneShot(audioClip);
+            isActivated=true;
         }
     }
 }

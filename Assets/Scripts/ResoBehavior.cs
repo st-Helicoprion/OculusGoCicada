@@ -14,7 +14,7 @@ public class ResoBehavior : MonoBehaviour
     public freqRange setFreq;
     public bool isActivated = false, extra;
     public int resoLayer;
-    SonarBehavior sonarBehavior;
+    GameState gameState;
     float curFreq;
     public GameObject particle, heldItem; 
     public StoryManager storyManager;
@@ -28,7 +28,7 @@ public class ResoBehavior : MonoBehaviour
         playerAudSource = GameObject.Find("XR Origin").GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         storyManager = GameObject.Find("XR Interaction Manager").GetComponent<StoryManager>();
-
+        gameState=GameObject.Find("GameState").GetComponent<GameState>();
         audioSource.spatialBlend =1;
         audioSource.maxDistance = 50;
     }
@@ -38,8 +38,7 @@ public class ResoBehavior : MonoBehaviour
         if(other.CompareTag("Sonar"))
         {
             other.tag = "Untagged";
-            sonarBehavior = other.GetComponent<SonarBehavior>();
-            curFreq = sonarBehavior.curFreq;
+            curFreq = 1/gameState.GetFreqTime();
             if(!extra)
             FreqCheck();
             else
@@ -79,6 +78,7 @@ public class ResoBehavior : MonoBehaviour
                 anim.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 transform.GetComponent<XRSocketInteractor>().enabled = false;
                 anim.SetTrigger("Unlock");
+                anim.GetComponent<AudioSource>().Play();
                 storyManager.stagesCompleted++;
                 
            }

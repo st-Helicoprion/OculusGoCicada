@@ -10,7 +10,7 @@ public class TubLimiter : MonoBehaviour
     public Rigidbody rb;
     public GameObject stickPos, handPos, visual, stickTop;
     public bool isSpin = false;
-    public Rigidbody playerRB;
+    // public Rigidbody playerRB;
     public AudioLibrary audioLibAsset;
     public AudioSource audioSource;
     public SonarSkill playerState;
@@ -18,7 +18,8 @@ public class TubLimiter : MonoBehaviour
     {
         jointLock = GetComponent<ConfigurableJoint>();
         rb =  GetComponent<Rigidbody>();
-        playerRB = GameObject.Find("XR Origin").GetComponent<Rigidbody>();
+        //playerRB好像沒有用途?
+        // playerRB = GameObject.Find("XR Origin").GetComponent<Rigidbody>();
         audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
         audioSource = GameObject.Find("HitBox").GetComponent<AudioSource>();
         playerState = GameObject.Find("HitBox").GetComponent<SonarSkill>();
@@ -27,7 +28,7 @@ public class TubLimiter : MonoBehaviour
     {
         //debugText.text = stickPos.transform.position.ToString() + "," + handPos.transform.position.ToString() ;
         //debugText.text = playerRB.velocity.ToString();
-        debugText.text = (Time.frameCount/Time.time).ToString();
+        //debugText.text = (Time.frameCount/Time.time).ToString();
 
         visual.transform.position = Vector3.Lerp(visual.transform.position,transform.position,1);
         visual.transform.LookAt(stickTop.transform.position);
@@ -51,7 +52,7 @@ public class TubLimiter : MonoBehaviour
             if(audioSource.volume<=1f)
             {
             audioSource.volume+=0.25f*Time.deltaTime;
-
+            //audioSource另開一份Script管理
             if(!audioSource.isPlaying&&playerState.sonarIsActive)
             audioSource.PlayOneShot(audioLibAsset.effects[5]);
             }

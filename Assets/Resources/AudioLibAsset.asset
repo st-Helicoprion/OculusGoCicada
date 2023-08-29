@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: AudioLibAsset
   m_EditorClassIdentifier: 
   songs:
-  - {fileID: 8300000, guid: f460466ef4796dd40aadf527ce00220d, type: 3}
-  - {fileID: 8300000, guid: 86c7d682fbdfbdd43b84e8fe98994575, type: 3}
-  - {fileID: 8300000, guid: 06a7338eb7f3c9f49acebd6954701ea8, type: 3}
-  - {fileID: 8300000, guid: 052e383ee9459e74d84b1b4cda658547, type: 3}
-  - {fileID: 8300000, guid: b6a6351ad79dcde4cb7bd38038af14ab, type: 3}
+  - {fileID: 8300000, guid: c0af8f8c9a00b6f4ab07ba7045bb5070, type: 3}
   effects:
   - {fileID: 8300000, guid: e921459e569c5864f8692c5863f25260, type: 3}
   - {fileID: 8300000, guid: b3ae3c4f27806a3488bb2918e91c47f9, type: 3}
@@ -27,8 +23,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4122dfe6c16cde547b372f41171c4b2a, type: 3}
   - {fileID: 8300000, guid: e260d8759a165ed4f9b0ff7dae2da87d, type: 3}
   - {fileID: 8300000, guid: fe7db0002b6a08843b52e605926e2eb3, type: 3}
-  - {fileID: 8300000, guid: 86433dd6778a04549a686def17ae90a1, type: 3}
+  - {fileID: 8300000, guid: 71fc03d7303419846bc6bee9c50b43d9, type: 3}
   - {fileID: 8300000, guid: 5cc132adf277fc342962bd1dd21c50cb, type: 3}
+  - {fileID: 8300000, guid: 4453a2e223835574fa533251968043b7, type: 3}
+  - {fileID: 8300000, guid: ffda1d88f8d196a44ba4021ee9deca71, type: 3}
   mechanics:
   - {fileID: 8300000, guid: 4af7faba61387644985e973d81f00e36, type: 3}
   - {fileID: 8300000, guid: 6d6e12474d80879458e3d6d7ccefb570, type: 3}
