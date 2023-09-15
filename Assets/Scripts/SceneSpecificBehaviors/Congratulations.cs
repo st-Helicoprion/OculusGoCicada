@@ -19,6 +19,7 @@ public class Congratulations : MonoBehaviour
         text1.text = "Press the back button to restart the demo";
         audioSource.Play();
         panel.GetComponent<Animator>().CrossFade("FadeToBlack",0);
+        this.gameObject.GetComponent<Renderer>().enabled = false;
      }
    }
 }

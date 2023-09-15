@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         Camera.localRotation = new Quaternion(0, curVRRot.y, 0, curVRRot.w);
         transform.localRotation = new Quaternion(0, curVRRot.y, 0, curVRRot.w);
     }
-    void WalkVFX()
+    void WalkSFX()
     {
         // if (!audioSource.isPlaying && moveDir.x != 0 && RunSpeed == 0 || !audioSource.isPlaying && moveDir.y != 0 && RunSpeed == 0)
         //     audioSource.PlayOneShot(audioLibAsset.effects[8]);
