@@ -1,14 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class EnemyBehavior : MonoBehaviour
 {
     Transform player;
     GameObject PointLight;
+
+    [SerializeField]
+    Animator animator;
+
     Rigidbody rb;
     [SerializeField]
-    float Timer, FlashTime;//用來做閃紅光，預計之後砍掉，用shader或其他方式做
+    float Timer, FlashTime, Speed = 0.5f;//用來做閃紅光，預計之後砍掉，用shader或其他方式做
     void Start()
     {
         player = GameObject.Find("XR Origin").transform;
@@ -25,13 +31,23 @@ public class EnemyBehavior : MonoBehaviour
 
     void OnTriggerStay(Collider collider)
     {
-        //閃紅光、向玩家移動、動畫
         Vector3 dir = player.localPosition - transform.localPosition;
-        // rb.AddForce(dir);
-        transform.localPosition += dir * Time.deltaTime;
-        // Debug.Log(dir);
+        transform.localPosition += dir * Time.deltaTime * Speed;
+        Debug.Log("HIT");
+        transform.rotation=Quaternion.LookRotation(-dir);
         // Vector3.Lerp(player.localPosition,dir,0.1f);
         LightFlash();
+        if (animator.GetBool("Chasing") != true)
+        {
+            animator.SetBool("Chasing", true);
+        }
+    }
+    void OnTriggerExit(Collider collider)
+    {
+        if (animator.GetBool("Chasing") != false)
+        {
+            animator.SetBool("Chasing", false);
+        }
     }
     void FixedUpdate()
     {
