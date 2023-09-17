@@ -42,7 +42,6 @@ public class EnemyBehavior : MonoBehaviour
         if (Timer < FlashTime)
         {
             PointLight.SetActive(false);
-
         }
     }
 
