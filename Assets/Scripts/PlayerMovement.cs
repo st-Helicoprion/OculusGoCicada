@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public ForLaptopDev Laptop;
     public Transform Camera;
     public InputReader inputReader;
-    public float RunSpeed = 1;
+    public GroundCheck groundCheck;
     public Vector2 speed;
     GameObject DirLight;
     Vector2 MoveDir;
@@ -28,13 +28,13 @@ public class PlayerMovement : MonoBehaviour
         audioLibAsset = Resources.Load<AudioLibrary>("AudioLibAsset");
         inputReader = Resources.Load<InputReader>("Input Reader Prefab");
         DirLight=GameObject.Find("Directional Light");
-        SetEevnts();
+        SetEvents();
     }
     void Update()
     {
         Move(MoveDir);
     }
-    void SetEevnts()
+    void SetEvents()
     {
         //player
         inputReader.InteractEvent += MouseClicked;
@@ -54,7 +54,15 @@ public class PlayerMovement : MonoBehaviour
     void Move(Vector2 moveDir)
     {
         Debug.Log("vr walk havent made,add more player action");
-        rb.velocity = 1.75f * transform.forward * moveDir.y * speed.x + transform.right * moveDir.x * speed.x + -transform.up * speed.x / 2;
+        if (groundCheck.isGrounded)
+        {
+            rb.velocity = 1.75f * transform.forward * moveDir.y * speed.x + transform.right * moveDir.x * speed.x;
+        }
+        else if(!groundCheck.isGrounded)
+        {
+            rb.velocity = 1.75f * transform.forward * moveDir.y * speed.x + transform.right * moveDir.x * speed.x + -transform.up * speed.x;
+
+        }
     }
     void VRRotation(Quaternion curVRRot)
     {
@@ -91,12 +99,12 @@ public class PlayerMovement : MonoBehaviour
 
             if (isLaptop)
             {
-                rb.velocity = transform.forward * RunSpeed * speed.y + -transform.up * speed.x / 2;
+                rb.velocity = transform.forward * speed.y;
                 if (!audioSource.isPlaying)//有空再來移這個
                     audioSource.PlayOneShot(audioLibAsset.effects[9]);
             }
             else
-                rb.velocity = Camera.forward * RunSpeed * speed.y + -transform.up * speed.x / 2;
+                rb.velocity = Camera.forward * speed.y;
             if (!audioSource.isPlaying)
                 audioSource.PlayOneShot(audioLibAsset.effects[9]);
         }

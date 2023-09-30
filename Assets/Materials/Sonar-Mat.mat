@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sonar-Mat
-  m_Shader: {fileID: -6465566751694194690, guid: 178ee74dcad243e4d99a7762aa01121d,
+  m_Shader: {fileID: -6465566751694194690, guid: d661db073a6674f489ceed332438f395,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -117,11 +117,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_31D8336E: {r: 1, g: 1, b: 1, a: 1}
-    - Color_AA8A1F9F: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
     - Color_C91FAD53: {r: 1, g: 1, b: 1, a: 0}
     - Vector2_1D3C182A: {r: -0.15, g: 0.4, b: 0, a: 0}
-    - Vector2_8C1E2143: {r: -1.92, g: 2.32, b: 0, a: 0}
-    - Vector2_9A6A5DFE: {r: -0.5, g: 3, b: 0, a: 0}
+    - Vector2_8C1E2143: {r: -3, g: 3, b: 0, a: 0}
+    - Vector2_9A6A5DFE: {r: -1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

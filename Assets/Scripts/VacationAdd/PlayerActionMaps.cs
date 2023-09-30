@@ -140,8 +140,8 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""36b3cc96-0461-4755-a407-452e394be5b0"",
-                    ""path"": ""<XRController>{RightHand}/touchpad"",
+                    ""id"": ""72bedb41-f39e-46c1-84ba-e0c5e782cb4d"",
+                    ""path"": ""<XRController>{LeftHand}/joystick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

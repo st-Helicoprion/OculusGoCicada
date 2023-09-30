@@ -6,7 +6,7 @@ using UnityEngine;
 public class RepeatingSonar : MonoBehaviour
 {
     public Transform playerPos;
-    public GameObject limitSonar, prefabSonar;
+    public GameObject limitSonar, prefabSonar, particle;
     public float count, releaseTime = 1;
 
     // Update is called once per frame
@@ -24,9 +24,10 @@ public class RepeatingSonar : MonoBehaviour
 
         if (limitSonar.transform.localScale.x > 5)
         {
+            particle.SetActive(true);
             Instantiate(prefabSonar, limitSonar.transform.position, Quaternion.identity);
         }
-        else return;
+        else particle.SetActive(false);
     }
 
     
