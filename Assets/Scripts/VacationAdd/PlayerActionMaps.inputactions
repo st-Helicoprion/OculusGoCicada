@@ -9,7 +9,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "1427babb-4daa-4b9a-a0fd-c26a484ffd4d",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -118,14 +118,69 @@
                 },
                 {
                     "name": "",
-                    "id": "72bedb41-f39e-46c1-84ba-e0c5e782cb4d",
-                    "path": "<XRController>{LeftHand}/joystick",
+                    "id": "7abc376a-faa3-4852-8bb6-1218f915e92e",
+                    "path": "<XRController>{LeftHand}/primary2DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "4c260715-ddc3-42b2-ac94-ae56b2cfbf54",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "74f19ecb-c5e0-419d-81de-b4f7e7c832a5",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "8f8246a5-60c2-468d-89c6-78897b1cb9ca",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "c6b426f8-f83a-41e5-a84c-3b057bddc8f0",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "0105c8c8-a799-4a18-8787-3248052f5a48",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -185,7 +240,7 @@
                 {
                     "name": "",
                     "id": "00a77e33-8ed9-4548-b9b5-ea84951ee43b",
-                    "path": "<XRController>{RightHand}/triggerPressed",
+                    "path": "<OculusTouchController>{LeftHand}/triggerPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -22,5 +22,11 @@ EditorBuildSettings:
       type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: b3d7276779b2e5f4ea2caf5d0e55aa3b,
       type: 2}
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 17995f1c9174ac54eafd9c09b55ef7dd,
+      type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: a7a7522a58225e14081c915b6929a194,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 11efef677f6b88b4e900fbfb63fbd9ee,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 0684f365275aeca46b63adb73cc06a61,
       type: 2}

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject DirLight;
     Vector2 MoveDir;
     public bool isSonar = false, isLaptop;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move(MoveDir);
+
+       
     }
     void SetEvents()
     {
@@ -44,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         //test
         inputReader.ReplayEvent += RePlay;
         inputReader.TurnLightOff += TurnLightOff;
+
+        
     }
 
     void MoveEventHandle(Vector2 TempMoveDir)

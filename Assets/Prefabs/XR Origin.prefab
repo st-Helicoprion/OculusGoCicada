@@ -5855,7 +5855,6 @@ MonoBehaviour:
   Camera: {fileID: 7967409820729439935}
   inputReader: {fileID: 11400000, guid: 61befe2ae1d01354d993bfc359938184, type: 2}
   groundCheck: {fileID: 3025002706306373758}
-  RunSpeed: 1
   speed: {x: 3, y: 5}
   isSonar: 0
   isLaptop: 0

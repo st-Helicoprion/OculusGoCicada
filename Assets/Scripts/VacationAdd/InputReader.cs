@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 using System;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "InputReader")]
 public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, PlayerActionMaps.ITestingActions
@@ -12,10 +14,13 @@ public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, Pl
     public event Action<Vector2> MoveEvent;
     public event Action<InputActionPhase> RunEvent;
     public event Action<Quaternion> VRLookEvent;
+    public event Action VRInteractEvent;
     public event Action ReplayEvent;
     public event Action TurnLightOff;
     //testing event
     public event Action<InputActionPhase> SpacePressed;
+    public event UnityAction testActions;
+    
 
 
     PlayerActionMaps playerActionMaps;
