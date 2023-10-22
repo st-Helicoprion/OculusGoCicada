@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using UnityEditor.Rendering.LookDev;
 
 [CreateAssetMenu(menuName = "InputReader")]
 public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, PlayerActionMaps.ITestingActions
@@ -87,4 +88,5 @@ public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, Pl
     {
         GunFireSonar?.Invoke();
     }
+
 }
