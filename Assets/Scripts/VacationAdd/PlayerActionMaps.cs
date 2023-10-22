@@ -233,7 +233,7 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
             ""id"": ""27bef5e7-62bf-4b89-817d-fe153e78a14e"",
             ""actions"": [
                 {
-                    ""name"": ""Space"",
+                    ""name"": ""GunFire"",
                     ""type"": ""Button"",
                     ""id"": ""55d471f1-cc75-4d32-bb47-7d0cd1e82254"",
                     ""expectedControlType"": ""Button"",
@@ -264,11 +264,11 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ab09a4b7-e207-4ed4-9817-66cc9bbe593b"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Space"",
+                    ""action"": ""GunFire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -347,7 +347,7 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
         m_Player_VRInteract = m_Player.FindAction("VRInteract", throwIfNotFound: true);
         // Testing
         m_Testing = asset.FindActionMap("Testing", throwIfNotFound: true);
-        m_Testing_Space = m_Testing.FindAction("Space", throwIfNotFound: true);
+        m_Testing_GunFire = m_Testing.FindAction("GunFire", throwIfNotFound: true);
         m_Testing_Replay = m_Testing.FindAction("Replay", throwIfNotFound: true);
         m_Testing_LightOff = m_Testing.FindAction("LightOff", throwIfNotFound: true);
     }
@@ -482,14 +482,14 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
     // Testing
     private readonly InputActionMap m_Testing;
     private ITestingActions m_TestingActionsCallbackInterface;
-    private readonly InputAction m_Testing_Space;
+    private readonly InputAction m_Testing_GunFire;
     private readonly InputAction m_Testing_Replay;
     private readonly InputAction m_Testing_LightOff;
     public struct TestingActions
     {
         private @PlayerActionMaps m_Wrapper;
         public TestingActions(@PlayerActionMaps wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Space => m_Wrapper.m_Testing_Space;
+        public InputAction @GunFire => m_Wrapper.m_Testing_GunFire;
         public InputAction @Replay => m_Wrapper.m_Testing_Replay;
         public InputAction @LightOff => m_Wrapper.m_Testing_LightOff;
         public InputActionMap Get() { return m_Wrapper.m_Testing; }
@@ -501,9 +501,9 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_TestingActionsCallbackInterface != null)
             {
-                @Space.started -= m_Wrapper.m_TestingActionsCallbackInterface.OnSpace;
-                @Space.performed -= m_Wrapper.m_TestingActionsCallbackInterface.OnSpace;
-                @Space.canceled -= m_Wrapper.m_TestingActionsCallbackInterface.OnSpace;
+                @GunFire.started -= m_Wrapper.m_TestingActionsCallbackInterface.OnGunFire;
+                @GunFire.performed -= m_Wrapper.m_TestingActionsCallbackInterface.OnGunFire;
+                @GunFire.canceled -= m_Wrapper.m_TestingActionsCallbackInterface.OnGunFire;
                 @Replay.started -= m_Wrapper.m_TestingActionsCallbackInterface.OnReplay;
                 @Replay.performed -= m_Wrapper.m_TestingActionsCallbackInterface.OnReplay;
                 @Replay.canceled -= m_Wrapper.m_TestingActionsCallbackInterface.OnReplay;
@@ -514,9 +514,9 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
             m_Wrapper.m_TestingActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Space.started += instance.OnSpace;
-                @Space.performed += instance.OnSpace;
-                @Space.canceled += instance.OnSpace;
+                @GunFire.started += instance.OnGunFire;
+                @GunFire.performed += instance.OnGunFire;
+                @GunFire.canceled += instance.OnGunFire;
                 @Replay.started += instance.OnReplay;
                 @Replay.performed += instance.OnReplay;
                 @Replay.canceled += instance.OnReplay;
@@ -547,7 +547,7 @@ public partial class @PlayerActionMaps : IInputActionCollection2, IDisposable
     }
     public interface ITestingActions
     {
-        void OnSpace(InputAction.CallbackContext context);
+        void OnGunFire(InputAction.CallbackContext context);
         void OnReplay(InputAction.CallbackContext context);
         void OnLightOff(InputAction.CallbackContext context);
     }

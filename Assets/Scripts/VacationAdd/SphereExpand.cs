@@ -5,19 +5,12 @@ using UnityEngine.InputSystem;
 
 public class SphereExpand : MonoBehaviour
 {
-    InputReader inputReader;
     int a = 0;
     [SerializeField] float speed = 1;
     [SerializeField] float scale = 1;
     void Start()
     {
-        inputReader = Resources.Load<InputReader>("Input Reader Prefab");
-        SetEevnts();
         transform.localScale=Vector3.one*scale;
-    }
-    void SetEevnts()
-    {
-        inputReader.SpacePressed += ChangeState;
     }
     void Update()
     {
@@ -25,17 +18,6 @@ public class SphereExpand : MonoBehaviour
         if (transform.localScale.x >= scale || a >= 0)
         {
             transform.localScale += Vector3.one * a * speed * Time.deltaTime;
-        }
-    }
-    void ChangeState(InputActionPhase phase)
-    {
-        if (phase == InputActionPhase.Performed)
-        {
-            a = 1;
-        }
-        else
-        {
-            a = -1;
         }
     }
 }

@@ -211,7 +211,7 @@
             "id": "27bef5e7-62bf-4b89-817d-fe153e78a14e",
             "actions": [
                 {
-                    "name": "Space",
+                    "name": "GunFire",
                     "type": "Button",
                     "id": "55d471f1-cc75-4d32-bb47-7d0cd1e82254",
                     "expectedControlType": "Button",
@@ -242,11 +242,11 @@
                 {
                     "name": "",
                     "id": "ab09a4b7-e207-4ed4-9817-66cc9bbe593b",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Space",
+                    "action": "GunFire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
