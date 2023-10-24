@@ -86,7 +86,10 @@ public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, Pl
 
     public void OnGunFire(InputAction.CallbackContext context)
     {
-        GunFireSonar?.Invoke();
+        if (context.started)
+        {
+            GunFireSonar?.Invoke();
+        }
     }
 
 }

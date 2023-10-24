@@ -4,24 +4,22 @@ using UnityEngine;
 
 public class GunFireSonar : MonoBehaviour
 {
-    /*
-        condition confirm(if triiger pulled)use f key instead
-        spawn a sonar
-        moving that stuff
-        let it last for a while and then delete it
-        visual improve
-    */
-
     [SerializeField] GameObject BulletPrefab;
-    [SerializeField] Animator animator;
+    [SerializeField] Transform BulletTrashCan;
+    [SerializeField] Transform BulletSpawnPoint;
+    [SerializeField] float ExistTime=5;
+    GameObject bulletTemp;
     void Start()
     {
         var inputReader = Resources.Load<InputReader>("Input Reader Prefab");
         inputReader.GunFireSonar += SpawnBullet;
     }
-    //bullet extend not spawn for now (10/23)
     void SpawnBullet()
     {
+        bulletTemp=GameObject.Instantiate(BulletPrefab,BulletSpawnPoint);
+        bulletTemp.transform.SetParent(BulletTrashCan);//Leave Bullets at current palce
+        Debug.Log("spawn");
+        Destroy(bulletTemp,ExistTime);
         // GameObject.Instantiate()
     }
 
