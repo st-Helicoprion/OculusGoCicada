@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
@@ -6,37 +7,33 @@ using UnityEngine.Animations;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    Transform player;
-    GameObject PointLight;
-
-    [SerializeField]
-    Animator animator;
-
-    Rigidbody rb;
     [SerializeField]
     float Timer, FlashTime, Speed = 0.5f;//用來做閃紅光，預計之後砍掉，用shader或其他方式做
+    [SerializeField]
+    Animator animator;
+    [SerializeField]
+    List<Material> materials = new List<Material>();
+    Transform player;
+    GameObject Mesh;
+    SkinnedMeshRenderer skinnedMeshRenderer;
+
+    Rigidbody rb;
     void Start()
     {
+        LoadMonserMaterial();
         player = GameObject.Find("XR Origin").transform;
-        PointLight = transform.Find("Point Light").gameObject;
-        PointLight.SetActive(false);
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
-    void Update()
+    void LoadMonserMaterial()
     {
-
+        Mesh = transform.Find("Monster/Cube").gameObject;
+        skinnedMeshRenderer = Mesh.GetComponent<SkinnedMeshRenderer>();
+        skinnedMeshRenderer.sharedMaterial = materials[0];
     }
-
     void OnTriggerStay(Collider collider)
     {
-        Vector3 dir = player.localPosition - transform.localPosition;
-        transform.localPosition += dir * Time.deltaTime * Speed;
-        Debug.Log("HIT");
-        transform.rotation=Quaternion.LookRotation(-dir);
-        // Vector3.Lerp(player.localPosition,dir,0.1f);
-        LightFlash();
+        MonsterMove();
+        ChangeMaterial();
         if (animator.GetBool("Chasing") != true)
         {
             animator.SetBool("Chasing", true);
@@ -51,22 +48,18 @@ public class EnemyBehavior : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Timer > 0)
-        {
-            Timer--;
-        }
-        if (Timer < FlashTime)
-        {
-            PointLight.SetActive(false);
-        }
+        skinnedMeshRenderer.sharedMaterial = materials[0];
     }
 
-    void LightFlash()
+    void ChangeMaterial()
     {
-        PointLight.SetActive(true);
-        if (Timer > FlashTime + 10)
-        {
-            Timer = Timer + 2;
-        }
+        skinnedMeshRenderer.sharedMaterial = materials[1];
+    }
+
+    void MonsterMove()
+    {
+        Vector3 dir = player.localPosition - transform.localPosition;
+        transform.localPosition += dir * Time.deltaTime * Speed;
+        transform.rotation = Quaternion.LookRotation(-dir);
     }
 }

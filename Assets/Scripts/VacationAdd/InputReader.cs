@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.EventSystems;
 using System;
-using UnityEngine.Events;
+using UnityEditor.Rendering.LookDev;
 
 [CreateAssetMenu(menuName = "InputReader")]
 public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, PlayerActionMaps.ITestingActions
@@ -14,13 +13,10 @@ public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, Pl
     public event Action<Vector2> MoveEvent;
     public event Action<InputActionPhase> RunEvent;
     public event Action<Quaternion> VRLookEvent;
-    public event Action VRInteractEvent;
     public event Action ReplayEvent;
     public event Action TurnLightOff;
     //testing event
-    public event Action<InputActionPhase> SpacePressed;
-    public event UnityAction testActions;
-    
+    public event Action GunFireSonar;
 
 
     PlayerActionMaps playerActionMaps;
@@ -83,12 +79,17 @@ public class InputReader : ScriptableObject, PlayerActionMaps.IPlayerActions, Pl
             ReplayEvent?.Invoke();
         }
     }
-    public void OnSpace(InputAction.CallbackContext context)
-    {
-        SpacePressed?.Invoke(context.phase);
-    }
     public void OnLightOff(InputAction.CallbackContext context)
     {
         TurnLightOff?.Invoke();
     }
+
+    public void OnGunFire(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            GunFireSonar?.Invoke();
+        }
+    }
+
 }
