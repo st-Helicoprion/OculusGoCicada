@@ -177,7 +177,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4294967295
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -414,9 +414,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   stickPos: {fileID: 109185620698590701}
   handPos: {fileID: 0}
-  frequency: 0
   altitude: 0
-  freqTime: 0
   count: 0
   debugText: {fileID: 0}
   Controls: {fileID: 0}

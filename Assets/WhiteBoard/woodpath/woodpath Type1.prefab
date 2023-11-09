@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8806339162244515708}
   - component: {fileID: 7815081079962821896}
   - component: {fileID: 5043830371894209426}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 1582958825021202883}
   - component: {fileID: 7785207781218850653}
   - component: {fileID: 1804976779424975746}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 5233149813019354797}
   - component: {fileID: 6033603373397277286}
   - component: {fileID: 5970039858961691699}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 7555229895923539316}
   - component: {fileID: 1137892818280608413}
   - component: {fileID: 5807945976827607680}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 8048780329117065313}
   m_Layer: 0
   m_Name: woodpath Type1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 2208824216716657888}
   - component: {fileID: 814265493749278413}
   - component: {fileID: 5599299922311200604}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
